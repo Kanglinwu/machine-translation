@@ -3,3 +3,4 @@ fasttext==0.9.3
 transformers==4.45.2
 torch==2.4.1
 numpy==1.23.5
+flask_cors==5.0.0

@@ -2,6 +2,7 @@
 
 Features:
 * A naive web used for demo/testing
+* Flask and Jinja2
 
 ## Installation & Setup
 ### Prerequisites:

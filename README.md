@@ -41,7 +41,7 @@ The `NLLB-200 Distilled 600M` model is a multilingual machine translation model 
 `det_conf`: The minimum confidence score (a float between 0 and 1) required for the detected language to be considered valid for translation. This prevents low-confidence predictions from triggering a translation attempt.
 
 ## Endpoints
-### POST /translate
+### POST 10.10.10.48/translate
 Description:
 This endpoint accepts a JSON payload containing the message to be translated and the target language. It detects the source language of the message and translates it to the target language if they differ.
 

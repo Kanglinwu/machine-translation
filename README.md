@@ -1,4 +1,4 @@
-# machine-translation
+# Machine Translation
 
 
 Features:
@@ -26,7 +26,7 @@ pip install -r requirements.txt
 wget https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin -P models/
 ```
 4. Set the environment variable `det_conf` to a suitable confidence threshold for language detection (e.g., 0.5).
-5. Run the Flask application:
+5. Run the API:
 ```console
 python api.py
 ```

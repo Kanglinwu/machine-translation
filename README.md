@@ -60,7 +60,7 @@ Follow these steps to set up the machine translation API:
     ```bash
     python api.py
     ```
-    or if you didn't setup the environment variable `det_conf`
+    or if you didn't setup the environment variable `det_conf`:
 
    ```bash
    det_conf=0.3 python api.py

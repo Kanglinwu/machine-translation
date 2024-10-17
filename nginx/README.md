@@ -3,7 +3,7 @@
 This NGINX configuration defines a load balancing setup for distributing incoming traffic across multiple backend servers (`server_1`, `server_2`, etc.) using the least_conn strategy, which directs traffic to the server with the fewest active connections.
 
 ## Configuration Details
-1. **Upstream Block (`backend`)**
+1. **Upstream Block** (`backend`)
 The upstream block defines the backend servers that NGINX will balance traffic across. The least_conn directive ensures that incoming requests are routed to the backend server with the fewest active connections at the time of the request.
 
 ```nginx

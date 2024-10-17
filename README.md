@@ -9,7 +9,7 @@ Features:
 
 ## Installation & Setup
 ### Prerequisites:
-1. Python 3.8 or higher
+1. Python 3.10.12
 2. Flask
 3. Hugging Face Transformers library
 4. FastText model

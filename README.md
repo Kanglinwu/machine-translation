@@ -132,7 +132,7 @@ To send a translation request to the API, you can use the following `curl` comma
 ```bash
 curl -X POST http://10.10.10.48:2486/translate \
     -H "Content-Type: application/json" \
-    -d '{"msg": "How old are you", "target_lang": "zh"}'
+    -d '{"msg": "Where are you", "target_lang": "zh"}'
 ```
 
 #### Expected Response
@@ -143,7 +143,7 @@ Upon making the request, you will receive a response in JSON format similar to t
 {
    "source_lang": "en",
    "is_trans": true,
-   "target_msg": "你有多年?",
+   "target_msg": "你在哪里?",
    "model": "facebook/nllb-200-distilled-600M"
 }
 ```

@@ -122,7 +122,7 @@ This endpoint accepts a JSON payload containing the message to be translated and
 
 Returns a 500 error if no input text is provided.
 Returns the original message if the detected source language and target language are the same.
-
+---
 ### Example
 
 #### Request

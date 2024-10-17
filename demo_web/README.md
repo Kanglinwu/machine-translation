@@ -20,5 +20,15 @@ pip install -r requirements.txt
 python demo_web.py
 ```
 
+## Directory Structure
+demo_web/
+  ├── static/
+  │   └── style.css
+  ├── templates/
+  │   └── index.html
+  └── demo_web.py (or your main Flask file)
+
+
+
 
 

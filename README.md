@@ -60,7 +60,8 @@ This endpoint accepts a JSON payload containing the message to be translated and
 {
     "source_lang": "es",
     "is_trans": true,
-    "target_msg": "Translated text here."
+    "target_msg": "Translated text here.",
+    "model": "Model used."
 }
 ```
 * `source_lang`: Detected language of the input text.

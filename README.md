@@ -17,17 +17,20 @@ Features:
 
 ### Steps:
 1. Clone the repository.
+```bash
+git clone https://github.com/United-Link/machine-translation.git
+```
 2. Install dependencies via pip:
-```console
+```bash
 pip install -r requirements.txt
 ```
 3. (Optional) Download the FastText language detection model and place it in the models folder:
-```console
+```bash
 wget https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin -P models/
 ```
 4. Set the environment variable `det_conf` to a suitable confidence threshold for language detection (e.g., 0.5).
 5. Run the API:
-```console
+```bash
 det_conf=0.5 python api.py
 ```
 ## Components Overview

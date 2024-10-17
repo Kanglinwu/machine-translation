@@ -24,7 +24,7 @@ git clone https://github.com/United-Link/machine-translation.git
 ```bash
 pip install -r requirements.txt
 ```
-3. (Optional) Download the FastText language detection model and place it in the models folder:
+3. Download the FastText language detection model and place it in the models folder:
 ```bash
 wget https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin -P models/
 ```

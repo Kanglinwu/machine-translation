@@ -113,7 +113,16 @@ def translate():
     data = request.get_json()  # 從 JSON 請求中提取數據
     msg = data.get("msg") # Text to be translated
     target_lang = data.get("target_lang") # Language to be translated
-    target_lang = target_languages[target_lang]
+
+    if target_lang in target_languages.keys():
+        target_lang = target_languages[target_lang]
+
+    else:
+        if not target_lang:
+            return jsonify({"error": "No target language provided."}), 500
+
+        else:
+            return jsonify({"error": "Invalid taraget language."}), 500
 
     # Initialize response object with default values for source language, translation flag, and translated text
     response_text = {

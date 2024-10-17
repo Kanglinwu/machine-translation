@@ -116,19 +116,19 @@ This guide outlines the steps to set up multiple servers using Docker and Docker
 
 ## Components Overview
 
-###NGINX
-
-NGINX serves as a reverse proxy and load balancer, distributing incoming traffic to multiple server instances for improved performance and reliability.
-
-### Docker Image
-
-A Docker image is a lightweight, stand-alone, executable package that includes everything needed to run a piece of software, including the code, runtime, libraries, and environment variables.
-
-### Docker Container
-
-A Docker container is a runnable instance of a Docker image. Containers are isolated from each other and share the OS kernel, enabling efficient resource utilization.
-
-### Docker Compose
-
-Docker Compose is a tool for defining and managing multi-container Docker applications. With Compose, you can define all your services, networks, and volumes in a single docker-compose.yml file and manage them with simple commands.
+    ### NGINX
+    
+    NGINX serves as a reverse proxy and load balancer, distributing incoming traffic to multiple server instances for improved performance and reliability.
+    
+    ### Docker Image
+    
+    A Docker image is a lightweight, stand-alone, executable package that includes everything needed to run a piece of software, including the code, runtime, libraries, and environment variables.
+    
+    ### Docker Container
+    
+    A Docker container is a runnable instance of a Docker image. Containers are isolated from each other and share the OS kernel, enabling efficient resource utilization.
+    
+    ### Docker Compose
+    
+    Docker Compose is a tool for defining and managing multi-container Docker applications. With Compose, you can define all your services, networks, and volumes in a single docker-compose.yml file and manage them with simple commands.
 

@@ -123,6 +123,31 @@ This endpoint accepts a JSON payload containing the message to be translated and
 Returns a 500 error if no input text is provided.
 Returns the original message if the detected source language and target language are the same.
 
+### Example
+
+#### Request
+
+To send a translation request to the API, you can use the following `curl` command:
+
+```bash
+curl -X POST http://10.10.10.48:2486/translate \
+    -H "Content-Type: application/json" \
+    -d '{"msg": "How old are you", "target_lang": "zh"}'
+```
+
+#### Expected Response
+
+Upon making the request, you will receive a response in JSON format similar to the following:
+
+```bash
+{
+   "source_lang": "en",
+   "is_trans": true,
+   "target_msg": "你有多年?",
+   "model": "facebook/nllb-200-distilled-600M"
+}
+```
+
 ## Run Multiple Servers with Load Balancing Mechanism
 
 This guide outlines the steps to set up multiple servers using Docker and Docker Compose, incorporating a load balancing mechanism.

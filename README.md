@@ -16,25 +16,56 @@ Features:
 4. FastText model
 5. CUDA-enabled GPU (optional, for faster computation)
 
-### Steps:
+### Setup Instructions
 
-1. Clone the repository.
-```bash
-git clone https://github.com/United-Link/machine-translation.git
-```
-2. Install dependencies via pip:
-```bash
-pip install -r requirements.txt
-```
-3. Download the FastText language detection model and place it in the models folder:
-```bash
-wget https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin -P models/
-```
-4. Set the environment variable `det_conf` to a suitable confidence threshold for language detection (e.g., 0.5).
-5. Run the API:
-```bash
-det_conf=0.5 python api.py
-```
+Follow these steps to set up the machine translation API:
+
+1. **Clone the Repository**
+
+   Clone the machine translation repository from GitHub:
+
+   ```bash
+   git clone https://github.com/United-Link/machine-translation.git
+    ```
+
+2. **Install Dependencies**
+
+    Navigate to the project directory and install the required dependencies using pip:
+
+    ```bash
+    cd machine-translation
+    pip install -r requirements.txt
+    ```
+
+3. **Download the FastText Language Detection Model**
+    
+    Download the FastText language detection model and place it in the models folder:
+    
+    ```bash
+    wget https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin -P models/
+    ```
+
+4. **Set the Environment Variable**
+
+    Configure the environment variable `det_conf` to specify a suitable confidence threshold for language detection (e.g., 0.3):
+    
+    ```bash
+    export det_conf=0.3
+    ```
+
+5. **Run the API**
+
+    Start the API using the following command:
+
+    ```bash
+    python api.py
+    ```
+    or if you didn't setup the environment variable `det_conf`
+
+   ```bash
+   det_conf=0.3 python api.py
+   ```
+
 ## Components Overview
 
 ### FastText Language Detection

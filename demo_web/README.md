@@ -21,12 +21,14 @@ python demo_web.py
 ```
 
 ## Directory Structure
+```scss
 demo_web/
   ├── static/
   │   └── style.css
   ├── templates/
   │   └── index.html
   └── demo_web.py (or your main Flask file)
+```
 
 
 

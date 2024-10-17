@@ -12,6 +12,7 @@ Snake Case (e.g., model_ft, model_name)
 """
 
 from flask import Flask, request, jsonify
+from flask_cors import cross_origin
 import fasttext
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 import torch
@@ -23,6 +24,7 @@ app = Flask(__name__)
 
 # TODO
 # Post Training Quantization
+# 防呆
 
 # Load FastText language detection model
 model_ft = fasttext.load_model('models/lid.176.bin')
@@ -82,6 +84,7 @@ target_languages = {
 }
 
 @app.route('/translate', methods=['POST'])
+@cross_origin()
 def translate():
     """
     Function: Translate
@@ -104,6 +107,7 @@ def translate():
         "source_lang": "es",
         "is_trans": true,
         "target_msg": "Translated text here."
+        "model": "Model used."
     }
     """
     data = request.get_json()  # 從 JSON 請求中提取數據
@@ -115,7 +119,8 @@ def translate():
     response_text = {
         "source_lang": "",
         "is_trans": False,
-        "target_msg": msg
+        "target_msg": msg,
+        "model": "None"
     }
 
     # Check if input text is provided
@@ -146,6 +151,7 @@ def translate():
             translated_texts = translation[0]['translation_text']
             response_text["is_trans"] = True
             response_text["target_msg"] = translated_texts
+            response_text["model"] = model_name
             return Response(json.dumps(response_text, ensure_ascii=False))
 
         except Exception as e:

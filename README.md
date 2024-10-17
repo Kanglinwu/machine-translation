@@ -1,1 +1,1 @@
-# machine_translation
+# machine-translation

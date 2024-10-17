@@ -4,18 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/style.css">
     <title>聊天室訊息過濾暨翻譯系統</title>
 </head>
 
 <body>
     <h1>聊天室訊息過濾暨翻譯系統</h1>
-    <form method="post">
+    <form method="post" action="http://10.10.10.48:5050">
+        <label for="input_text">Enter your message for translation:</label><br>
         <textarea name="input_text" rows="4" cols="50">{{ input_text }}</textarea><br>
+        
+        <label for="language">Select language:</label><br>
+        <select name="language" id="language">
+            <option value="en" {% if target_lang == 'en' %}selected{% endif %}>英文</option>
+            <option value="zh" {% if target_lang == 'zh' %}selected{% endif %}>中文</option>
+            <option value="vi" {% if target_lang == 'vi' %}selected{% endif %}>越南文</option>
+            <option value="th" {% if target_lang == 'th' %}selected{% endif %}>泰文</option>
+            <option value="ko" {% if target_lang == 'ko' %}selected{% endif %}>韓文</option>
+        </select><br><br>
+
         <input type="submit" value="提交">
     </form>
 
-    <h2>結果</h2>
-    <p>{{ output_text|nl2br|safe }}</p>
+    <h2>Response</h2>
+    <p>源語言: {{ source_lang|nl2br|safe }}</p>
+    <p>翻譯: {{ is_trans|nl2br|safe }}</p>
+    <p>結果: {{ output_text|nl2br|safe }}</p>
+    <p>模型: {{ model_used|nl2br|safe }}</p>
 </body>
 
 </html>

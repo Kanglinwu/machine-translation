@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from flask_cors import cross_origin
 import requests  # Import the requests library
 
 app = Flask(__name__)
@@ -6,10 +7,12 @@ app = Flask(__name__)
 # Custom filter for nl2br
 # 自定義過濾器
 @app.template_filter('nl2br')
+@cross_origin()
 def nl2br_filter(s):
     return s.replace('\n', '<br>\n')
 
 @app.route('/', methods=['GET', 'POST'])
+@cross_origin()
 def index():
     input_text: str = "" # Input text
     output_text: str = "" # Translated text 

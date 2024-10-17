@@ -1,6 +1,5 @@
 # Machine Translation
 
-
 Features:
 * Language detection for over 170 languages.
 * Translation pipeline using the NLLB-200 Distilled 600M model.
@@ -8,7 +7,9 @@ Features:
 
 
 ## Installation & Setup
+
 ### Prerequisites:
+
 1. Python 3.10.12
 2. Flask
 3. Hugging Face Transformers library
@@ -16,6 +17,7 @@ Features:
 5. CUDA-enabled GPU (optional, for faster computation)
 
 ### Steps:
+
 1. Clone the repository.
 ```bash
 git clone https://github.com/United-Link/machine-translation.git
@@ -34,21 +36,28 @@ wget https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin -P mo
 det_conf=0.5 python api.py
 ```
 ## Components Overview
+
 ### FastText Language Detection
+
 The FastText model (`lid.176.bin`) is pre-trained on a variety of languages. This model is used to predict the source language of the input text with a confidence score.
 
 ### NLLB-200 Translation Model
+
 The `NLLB-200 Distilled 600M` model is a multilingual machine translation model capable of translating between numerous languages. The model is loaded using Hugging Face’s transformers library and fine-tuned for efficient GPU usage through memory-efficient configurations.
 
 ### Environment Variables
+
 `det_conf`: The minimum confidence score (a float between 0 and 1) required for the detected language to be considered valid for translation. This prevents low-confidence predictions from triggering a translation attempt.
 
 ## Endpoints
+
 ### POST 10.10.10.48/translate
+
 Description:
 This endpoint accepts a JSON payload containing the message to be translated and the target language. It detects the source language of the message and translates it to the target language if they differ.
 
 #### Request Payload
+
 ```json
 {
     "msg": "Text to be translated.",
@@ -59,6 +68,7 @@ This endpoint accepts a JSON payload containing the message to be translated and
 * `target_lang`: (string) The target language code (e.g., "en" for English, "zh" for Chinese).
 
 #### Response
+
 ```json
 {
     "source_lang": "es",
@@ -72,8 +82,53 @@ This endpoint accepts a JSON payload containing the message to be translated and
 * `target_msg`: Either the translated message or the original if no translation was needed.
 
 #### Error Handling:
+
 Returns a 500 error if no input text is provided.
 Returns the original message if the detected source language and target language are the same.
 
+## Run Multiple Servers with Load Balancing Mechanism
 
+This guide outlines the steps to set up multiple servers using Docker and Docker Compose, incorporating a load balancing mechanism.
+
+### Steps:
+
+1. **Build the Docker Image**
+
+   Build the Docker image named `server` using the following command:
+
+   ```bash
+   docker build -t server .
+   ```
+2. **Run Docker Compose**
+
+    Start the server with Docker Compose while setting the environment variable det_conf:
+    
+    ```bash
+    det_conf=0.3 docker compose up -d
+    ```
+ 3. **Stop the Server**
+
+    To stop and remove the running server, execute:
+    
+    ```bash
+    det_conf=0.3 docker compose down
+    ```
+
+## Components Overview
+
+###NGINX
+
+NGINX serves as a reverse proxy and load balancer, distributing incoming traffic to multiple server instances for improved performance and reliability.
+
+### Docker Image
+
+A Docker image is a lightweight, stand-alone, executable package that includes everything needed to run a piece of software, including the code, runtime, libraries, and environment variables.
+
+### Docker Container
+
+A Docker container is a runnable instance of a Docker image. Containers are isolated from each other and share the OS kernel, enabling efficient resource utilization.
+
+### Docker Compose
+
+Docker Compose is a tool for defining and managing multi-container Docker applications. With Compose, you can define all your services, networks, and volumes in a single docker-compose.yml file and manage them with simple commands.
 

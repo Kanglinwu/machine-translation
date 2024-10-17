@@ -45,7 +45,13 @@ Follow these steps to set up the machine translation API:
     wget https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin -P models/
     ```
 
-4. **Set the Environment Variable**
+## Run Single Server
+
+This guide outlines the steps to set up single servers.
+
+### Steps:
+
+1. **Set the Environment Variable**
 
     Configure the environment variable `det_conf` to specify a suitable confidence threshold for language detection (e.g., 0.3):
     
@@ -53,7 +59,7 @@ Follow these steps to set up the machine translation API:
     export det_conf=0.3
     ```
 
-5. **Run the API**
+2. **Run the API**
 
     Start the API using the following command:
 

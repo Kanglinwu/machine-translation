@@ -1,0 +1,372 @@
+server_4-1  | 2024-10-15T07:17:44.250036122Z 
+server_4-1  | 2024-10-15T07:17:44.250066861Z =============
+server_1-1  | 2024-10-15T07:17:44.250034804Z 
+server_1-1  | 2024-10-15T07:17:44.250072812Z =============
+server_1-1  | 2024-10-15T07:17:44.250078223Z == PyTorch ==
+server_1-1  | 2024-10-15T07:17:44.250119812Z =============
+server_1-1  | 2024-10-15T07:17:44.251087150Z 
+server_4-1  | 2024-10-15T07:17:44.250075724Z == PyTorch ==
+server_5-1  | 2024-10-15T07:17:44.131940978Z 
+server_5-1  | 2024-10-15T07:17:44.132004863Z =============
+server_5-1  | 2024-10-15T07:17:44.132052176Z == PyTorch ==
+server_5-1  | 2024-10-15T07:17:44.132284655Z =============
+server_5-1  | 2024-10-15T07:17:44.137127031Z 
+server_5-1  | 2024-10-15T07:17:44.137146150Z NVIDIA Release 21.11 (build 29224839)
+server_1-1  | 2024-10-15T07:17:44.251093353Z NVIDIA Release 21.11 (build 29224839)
+server_4-1      | 2024-10-15T07:17:44.250111579Z =============
+server_4-1      | 2024-10-15T07:17:44.251129591Z 
+server_5-1      | 2024-10-15T07:17:44.137151066Z PyTorch Version 1.11.0a0+b6df043
+server_4-1      | 2024-10-15T07:17:44.251134759Z NVIDIA Release 21.11 (build 29224839)
+server_5-1      | 2024-10-15T07:17:44.138895976Z 
+server_4-1      | 2024-10-15T07:17:44.251148896Z PyTorch Version 1.11.0a0+b6df043
+server_4-1      | 2024-10-15T07:17:44.251491648Z 
+server_1-1      | 2024-10-15T07:17:44.251101602Z PyTorch Version 1.11.0a0+b6df043
+server_1-1      | 2024-10-15T07:17:44.251433819Z 
+server_1-1      | 2024-10-15T07:17:44.251436051Z Container image Copyright (c) 2021, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+server_1-1      | 2024-10-15T07:17:44.251795857Z 
+server_1-1      | 2024-10-15T07:17:44.251797762Z Copyright (c) 2014-2021 Facebook Inc.
+server_1-1      | 2024-10-15T07:17:44.251799172Z Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+server_1-1      | 2024-10-15T07:17:44.251800540Z Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+server_4-1      | 2024-10-15T07:17:44.251493776Z Container image Copyright (c) 2021, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+server_2-1      | 2024-10-15T07:17:44.203148336Z 
+server_2-1      | 2024-10-15T07:17:44.203166456Z =============
+server_2-1      | 2024-10-15T07:17:44.203274881Z == PyTorch ==
+server_2-1      | 2024-10-15T07:17:44.203279357Z =============
+server_2-1      | 2024-10-15T07:17:44.204260174Z 
+server_2-1      | 2024-10-15T07:17:44.204264457Z NVIDIA Release 21.11 (build 29224839)
+server_1-1      | 2024-10-15T07:17:44.251801579Z Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+nginx_server-1  | 2024-10-15T07:17:43.834099912Z /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+server_1-1      | 2024-10-15T07:17:44.251802745Z Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+nginx_server-1  | 2024-10-15T07:17:43.834152792Z /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+server_2-1      | 2024-10-15T07:17:44.204266203Z PyTorch Version 1.11.0a0+b6df043
+nginx_server-1  | 2024-10-15T07:17:43.834738958Z /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+nginx_server-1  | 2024-10-15T07:17:43.837314468Z 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+nginx_server-1  | 2024-10-15T07:17:43.841603759Z 10-listen-on-ipv6-by-default.sh: info: /etc/nginx/conf.d/default.conf differs from the packaged version
+nginx_server-1  | 2024-10-15T07:17:43.841694467Z /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+server_4-1      | 2024-10-15T07:17:44.251842444Z 
+server_4-1      | 2024-10-15T07:17:44.251844498Z Copyright (c) 2014-2021 Facebook Inc.
+server_4-1      | 2024-10-15T07:17:44.251846138Z Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+server_5-1      | 2024-10-15T07:17:44.138901602Z Container image Copyright (c) 2021, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+server_5-1      | 2024-10-15T07:17:44.140904431Z 
+server_5-1      | 2024-10-15T07:17:44.140908440Z Copyright (c) 2014-2021 Facebook Inc.
+server_5-1      | 2024-10-15T07:17:44.140912237Z Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+nginx_server-1  | 2024-10-15T07:17:43.841748066Z /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+nginx_server-1  | 2024-10-15T07:17:43.843017265Z /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+nginx_server-1  | 2024-10-15T07:17:43.843596418Z /docker-entrypoint.sh: Configuration complete; ready for start up
+server_2-1      | 2024-10-15T07:17:44.204661858Z 
+server_2-1      | 2024-10-15T07:17:44.204666080Z Container image Copyright (c) 2021, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+nginx_server-1  | 2024-10-15T07:17:43.848848869Z 2024/10/15 07:17:43 [notice] 1#1: using the "epoll" event method
+nginx_server-1  | 2024-10-15T07:17:43.848857141Z 2024/10/15 07:17:43 [notice] 1#1: nginx/1.26.2
+nginx_server-1  | 2024-10-15T07:17:43.848859476Z 2024/10/15 07:17:43 [notice] 1#1: built by gcc 13.2.1 20240309 (Alpine 13.2.1_git20240309) 
+nginx_server-1  | 2024-10-15T07:17:43.848861457Z 2024/10/15 07:17:43 [notice] 1#1: OS: Linux 5.15.0-122-generic
+nginx_server-1  | 2024-10-15T07:17:43.848863177Z 2024/10/15 07:17:43 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+nginx_server-1  | 2024-10-15T07:17:43.848925865Z 2024/10/15 07:17:43 [notice] 1#1: start worker processes
+server_5-1      | 2024-10-15T07:17:44.140918324Z Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+server_2-1      | 2024-10-15T07:17:44.204982123Z 
+server_5-1      | 2024-10-15T07:17:44.140922585Z Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+server_2-1      | 2024-10-15T07:17:44.204986491Z Copyright (c) 2014-2021 Facebook Inc.
+server_5-1      | 2024-10-15T07:17:44.140926732Z Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+server_5-1      | 2024-10-15T07:17:44.140930391Z Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+nginx_server-1  | 2024-10-15T07:17:43.849017110Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 28
+server_5-1      | 2024-10-15T07:17:44.140934520Z Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+server_3-1      | 2024-10-15T07:17:44.219831069Z 
+server_3-1      | 2024-10-15T07:17:44.219844470Z =============
+server_3-1      | 2024-10-15T07:17:44.219846567Z == PyTorch ==
+server_3-1      | 2024-10-15T07:17:44.219927671Z =============
+server_3-1      | 2024-10-15T07:17:44.220871092Z 
+server_1-1      | 2024-10-15T07:17:44.251803794Z Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+nginx_server-1  | 2024-10-15T07:17:43.849061942Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 29
+server_4-1      | 2024-10-15T07:17:44.251847620Z Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+nginx_server-1  | 2024-10-15T07:17:43.849125507Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 30
+nginx_server-1  | 2024-10-15T07:17:43.849192841Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 31
+nginx_server-1  | 2024-10-15T07:17:43.849256111Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 32
+nginx_server-1  | 2024-10-15T07:17:43.849320457Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 33
+nginx_server-1  | 2024-10-15T07:17:43.849406697Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 34
+nginx_server-1  | 2024-10-15T07:17:43.849520191Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 35
+nginx_server-1  | 2024-10-15T07:17:43.849621519Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 36
+server_2-1      | 2024-10-15T07:17:44.204988112Z Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+server_2-1      | 2024-10-15T07:17:44.204989677Z Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+server_2-1      | 2024-10-15T07:17:44.204990879Z Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+server_2-1      | 2024-10-15T07:17:44.204991964Z Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+server_2-1      | 2024-10-15T07:17:44.204994704Z Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+server_2-1      | 2024-10-15T07:17:44.204995947Z Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+server_3-1      | 2024-10-15T07:17:44.220875500Z NVIDIA Release 21.11 (build 29224839)
+server_5-1      | 2024-10-15T07:17:44.140938683Z Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+server_3-1      | 2024-10-15T07:17:44.220877260Z PyTorch Version 1.11.0a0+b6df043
+server_5-1      | 2024-10-15T07:17:44.140942309Z Copyright (c) 2015      Google Inc.
+server_5-1      | 2024-10-15T07:17:44.140946037Z Copyright (c) 2015      Yangqing Jia
+server_5-1      | 2024-10-15T07:17:44.140949707Z Copyright (c) 2013-2016 The Caffe contributors
+server_5-1      | 2024-10-15T07:17:44.140953398Z All rights reserved.
+server_5-1      | 2024-10-15T07:17:44.142859725Z 
+server_5-1      | 2024-10-15T07:17:44.142882260Z NVIDIA Deep Learning Profiler (dlprof) Copyright (c) 2021, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+server_5-1      | 2024-10-15T07:17:44.144536338Z 
+server_5-1      | 2024-10-15T07:17:44.144541802Z Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+server_5-1      | 2024-10-15T07:17:44.144546735Z 
+nginx_server-1  | 2024-10-15T07:17:43.849709483Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 37
+server_1-1      | 2024-10-15T07:17:44.251804921Z Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+nginx_server-1  | 2024-10-15T07:17:43.849798483Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 38
+server_5-1      | 2024-10-15T07:17:44.144550307Z This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+server_5-1      | 2024-10-15T07:17:44.144554247Z By pulling and using the container, you accept the terms and conditions of this license:
+server_5-1      | 2024-10-15T07:17:44.144558551Z https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+server_5-1      | 2024-10-15T07:17:44.261574618Z WARNING: Detected NVIDIA NVIDIA GeForce RTX 4080 SUPER GPU, which is not yet supported in this version of the container
+server_5-1      | 2024-10-15T07:17:44.262886895Z ERROR: No supported GPU(s) detected to run this container
+server_5-1      | 2024-10-15T07:17:44.368695773Z 
+server_5-1      | 2024-10-15T07:17:44.368701787Z NOTE: MOFED driver for multi-node communication was not detected.
+server_5-1      | 2024-10-15T07:17:44.368703495Z       Multi-node communication performance may be reduced.
+server_5-1      | 2024-10-15T07:17:44.370161758Z 
+server_4-1      | 2024-10-15T07:17:44.251849011Z Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+server_4-1      | 2024-10-15T07:17:44.251850367Z Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+server_4-1      | 2024-10-15T07:17:44.251851702Z Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+server_4-1      | 2024-10-15T07:17:44.251853158Z Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+server_4-1      | 2024-10-15T07:17:44.251854636Z Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+server_4-1      | 2024-10-15T07:17:44.251856062Z Copyright (c) 2015      Google Inc.
+server_2-1      | 2024-10-15T07:17:44.204997150Z Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+server_1-1      | 2024-10-15T07:17:44.251806044Z Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+server_5-1      | 2024-10-15T07:17:57.022993485Z  * Serving Flask app 'demo'
+server_1-1      | 2024-10-15T07:17:44.251807176Z Copyright (c) 2015      Google Inc.
+server_1-1      | 2024-10-15T07:17:44.251808244Z Copyright (c) 2015      Yangqing Jia
+server_1-1      | 2024-10-15T07:17:44.251809268Z Copyright (c) 2013-2016 The Caffe contributors
+server_1-1      | 2024-10-15T07:17:44.251810299Z All rights reserved.
+server_1-1      | 2024-10-15T07:17:44.252140220Z 
+server_1-1      | 2024-10-15T07:17:44.252142165Z NVIDIA Deep Learning Profiler (dlprof) Copyright (c) 2021, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+server_1-1      | 2024-10-15T07:17:44.252485442Z 
+server_1-1      | 2024-10-15T07:17:44.252487252Z Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+server_1-1      | 2024-10-15T07:17:44.252488526Z 
+server_1-1      | 2024-10-15T07:17:44.252489584Z This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+nginx_server-1  | 2024-10-15T07:17:43.849918199Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 39
+server_1-1      | 2024-10-15T07:17:44.252490797Z By pulling and using the container, you accept the terms and conditions of this license:
+nginx_server-1  | 2024-10-15T07:17:43.849984050Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 40
+nginx_server-1  | 2024-10-15T07:17:43.850071788Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 41
+nginx_server-1  | 2024-10-15T07:17:43.850168773Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 42
+nginx_server-1  | 2024-10-15T07:17:43.850259794Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 43
+nginx_server-1  | 2024-10-15T07:17:43.850350245Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 44
+nginx_server-1  | 2024-10-15T07:17:43.850442770Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 45
+nginx_server-1  | 2024-10-15T07:17:43.850547958Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 46
+nginx_server-1  | 2024-10-15T07:17:43.850645069Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 47
+nginx_server-1  | 2024-10-15T07:17:43.850744051Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 48
+server_5-1      | 2024-10-15T07:17:57.023014567Z  * Debug mode: on
+server_3-1      | 2024-10-15T07:17:44.221323276Z 
+server_3-1      | 2024-10-15T07:17:44.221327635Z Container image Copyright (c) 2021, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+server_3-1      | 2024-10-15T07:17:44.221626162Z 
+server_3-1      | 2024-10-15T07:17:44.221628194Z Copyright (c) 2014-2021 Facebook Inc.
+server_3-1      | 2024-10-15T07:17:44.221629502Z Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+server_3-1      | 2024-10-15T07:17:44.221630698Z Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+server_3-1      | 2024-10-15T07:17:44.221631780Z Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+server_3-1      | 2024-10-15T07:17:44.221632791Z Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+server_1-1      | 2024-10-15T07:17:44.252491944Z https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+server_4-1      | 2024-10-15T07:17:44.251857457Z Copyright (c) 2015      Yangqing Jia
+nginx_server-1  | 2024-10-15T07:17:43.850839807Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 49
+server_4-1      | 2024-10-15T07:17:44.251858787Z Copyright (c) 2013-2016 The Caffe contributors
+server_4-1      | 2024-10-15T07:17:44.251860136Z All rights reserved.
+server_4-1      | 2024-10-15T07:17:44.252187905Z 
+server_4-1      | 2024-10-15T07:17:44.252190049Z NVIDIA Deep Learning Profiler (dlprof) Copyright (c) 2021, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+server_4-1      | 2024-10-15T07:17:44.252613892Z 
+server_3-1      | 2024-10-15T07:17:44.221633944Z Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+server_3-1      | 2024-10-15T07:17:44.221635128Z Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+server_3-1      | 2024-10-15T07:17:44.221636249Z Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+nginx_server-1  | 2024-10-15T07:17:43.850947631Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 50
+nginx_server-1  | 2024-10-15T07:17:43.851050720Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 51
+nginx_server-1  | 2024-10-15T07:17:43.851163224Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 52
+nginx_server-1  | 2024-10-15T07:17:43.851273444Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 53
+nginx_server-1  | 2024-10-15T07:17:43.851394759Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 54
+nginx_server-1  | 2024-10-15T07:17:43.851511286Z 2024/10/15 07:17:43 [notice] 1#1: start worker process 55
+server_3-1      | 2024-10-15T07:17:44.221637334Z Copyright (c) 2015      Google Inc.
+server_5-1      | 2024-10-15T07:17:57.026428297Z WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+server_3-1      | 2024-10-15T07:17:44.221638378Z Copyright (c) 2015      Yangqing Jia
+server_5-1      | 2024-10-15T07:17:57.026448751Z  * Running on all addresses (0.0.0.0)
+server_4-1      | 2024-10-15T07:17:44.252615904Z Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+server_4-1      | 2024-10-15T07:17:44.252617459Z 
+server_4-1      | 2024-10-15T07:17:44.252618814Z This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+server_4-1      | 2024-10-15T07:17:44.252620242Z By pulling and using the container, you accept the terms and conditions of this license:
+server_4-1      | 2024-10-15T07:17:44.252621609Z https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+nginx_server-1  | 2024-10-15T07:18:07.214435244Z 192.168.8.32 - - [15/Oct/2024:07:18:07 +0000] "GET / HTTP/1.1" 499 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0" "-"
+server_4-1      | 2024-10-15T07:17:44.377518916Z WARNING: Detected NVIDIA NVIDIA GeForce RTX 4080 SUPER GPU, which is not yet supported in this version of the container
+nginx_server-1  | 2024-10-15T07:18:07.892983446Z 192.168.8.32 - - [15/Oct/2024:07:18:07 +0000] "GET / HTTP/1.1" 200 467 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0" "-"
+server_4-1      | 2024-10-15T07:17:44.378745827Z ERROR: No supported GPU(s) detected to run this container
+server_4-1      | 2024-10-15T07:17:44.411329918Z 
+server_4-1      | 2024-10-15T07:17:44.411342019Z NOTE: MOFED driver for multi-node communication was not detected.
+server_4-1      | 2024-10-15T07:17:44.411343719Z       Multi-node communication performance may be reduced.
+server_4-1      | 2024-10-15T07:17:44.412786157Z 
+server_4-1      | 2024-10-15T07:17:56.268319282Z  * Serving Flask app 'demo'
+server_4-1      | 2024-10-15T07:17:56.268340322Z  * Debug mode: on
+server_5-1      | 2024-10-15T07:17:57.026450960Z  * Running on http://127.0.0.1:5050
+nginx_server-1  | 2024-10-15T07:18:08.010215585Z 192.168.8.32 - - [15/Oct/2024:07:18:08 +0000] "GET /favicon.ico HTTP/1.1" 404 207 "http://10.10.10.48:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0" "-"
+server_5-1      | 2024-10-15T07:17:57.026452166Z  * Running on http://172.19.0.5:5050
+nginx_server-1  | 2024-10-15T07:18:10.838550442Z 192.168.8.32 - - [15/Oct/2024:07:18:10 +0000] "POST / HTTP/1.1" 200 1115 "http://10.10.10.48:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0" "-"
+server_3-1      | 2024-10-15T07:17:44.221639424Z Copyright (c) 2013-2016 The Caffe contributors
+server_3-1      | 2024-10-15T07:17:44.221640521Z All rights reserved.
+server_3-1      | 2024-10-15T07:17:44.221976716Z 
+server_3-1      | 2024-10-15T07:17:44.221981773Z NVIDIA Deep Learning Profiler (dlprof) Copyright (c) 2021, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+server_3-1      | 2024-10-15T07:17:44.222391578Z 
+server_3-1      | 2024-10-15T07:17:44.222393607Z Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+server_4-1      | 2024-10-15T07:17:56.271622407Z WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+server_4-1      | 2024-10-15T07:17:56.271637881Z  * Running on all addresses (0.0.0.0)
+server_4-1      | 2024-10-15T07:17:56.271639979Z  * Running on http://127.0.0.1:5050
+nginx_server-1  | 2024-10-15T07:18:18.006948760Z 192.168.8.32 - - [15/Oct/2024:07:18:18 +0000] "POST / HTTP/1.1" 200 1115 "http://10.10.10.48:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0" "-"
+nginx_server-1  | 2024-10-15T07:18:29.025752682Z 192.168.8.32 - - [15/Oct/2024:07:18:29 +0000] "POST / HTTP/1.1" 200 1127 "http://10.10.10.48:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0" "-"
+nginx_server-1  | 2024-10-15T07:18:29.971971121Z 192.168.8.32 - - [15/Oct/2024:07:18:29 +0000] "POST / HTTP/1.1" 200 1127 "http://10.10.10.48:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0" "-"
+nginx_server-1  | 2024-10-15T07:18:30.746087545Z 192.168.8.32 - - [15/Oct/2024:07:18:30 +0000] "POST / HTTP/1.1" 200 1127 "http://10.10.10.48:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0" "-"
+nginx_server-1  | 2024-10-15T07:18:31.480327560Z 192.168.8.32 - - [15/Oct/2024:07:18:31 +0000] "POST / HTTP/1.1" 200 1127 "http://10.10.10.48:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0" "-"
+server_2-1      | 2024-10-15T07:17:44.204998290Z Copyright (c) 2015      Google Inc.
+server_2-1      | 2024-10-15T07:17:44.204999351Z Copyright (c) 2015      Yangqing Jia
+server_2-1      | 2024-10-15T07:17:44.205000461Z Copyright (c) 2013-2016 The Caffe contributors
+nginx_server-1  | 2024-10-15T07:19:31.203223494Z 192.168.8.32 - - [15/Oct/2024:07:19:31 +0000] "POST / HTTP/1.1" 200 1154 "-" "curl/8.6.0" "-"
+server_2-1      | 2024-10-15T07:17:44.205001561Z All rights reserved.
+nginx_server-1  | 2024-10-15T07:19:31.212078774Z 192.168.8.32 - - [15/Oct/2024:07:19:31 +0000] "POST / HTTP/1.1" 200 1154 "-" "curl/8.6.0" "-"
+server_2-1      | 2024-10-15T07:17:44.205320395Z 
+server_3-1      | 2024-10-15T07:17:44.222395195Z 
+nginx_server-1  | 2024-10-15T07:19:31.212960904Z 192.168.8.32 - - [15/Oct/2024:07:19:31 +0000] "POST / HTTP/1.1" 200 1154 "-" "curl/8.6.0" "-"
+server_4-1      | 2024-10-15T07:17:56.271641307Z  * Running on http://172.19.0.6:5050
+server_4-1      | 2024-10-15T07:17:56.271642515Z Press CTRL+C to quit
+server_5-1      | 2024-10-15T07:17:57.026454146Z Press CTRL+C to quit
+server_5-1      | 2024-10-15T07:17:57.026789535Z  * Restarting with stat
+server_5-1      | 2024-10-15T07:18:07.726806527Z  * Debugger is active!
+server_5-1      | 2024-10-15T07:18:07.748196309Z  * Debugger PIN: 999-786-407
+server_5-1      | 2024-10-15T07:21:07.656903850Z 172.19.0.4 - - [15/Oct/2024 07:21:07] "POST / HTTP/1.0" 200 -
+server_5-1      | 2024-10-15T07:21:07.657221725Z 172.19.0.4 - - [15/Oct/2024 07:21:07] "POST / HTTP/1.0" 200 -
+server_5-1      | 2024-10-15T07:25:28.844112231Z 172.19.0.4 - - [15/Oct/2024 07:25:28] "POST / HTTP/1.0" 200 -
+server_4-1      | 2024-10-15T07:17:56.271948368Z  * Restarting with stat
+server_2-1      | 2024-10-15T07:17:44.205322340Z NVIDIA Deep Learning Profiler (dlprof) Copyright (c) 2021, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+server_4-1      | 2024-10-15T07:18:00.442550394Z  * Debugger is active!
+server_4-1      | 2024-10-15T07:18:00.468272656Z  * Debugger PIN: 144-812-425
+server_4-1      | 2024-10-15T07:18:31.480055852Z 172.19.0.4 - - [15/Oct/2024 07:18:31] "POST / HTTP/1.0" 200 -
+server_4-1      | 2024-10-15T07:21:06.359686443Z 172.19.0.4 - - [15/Oct/2024 07:21:06] "POST / HTTP/1.0" 200 -
+server_4-1      | 2024-10-15T07:21:07.192150560Z 172.19.0.4 - - [15/Oct/2024 07:21:07] "POST / HTTP/1.0" 200 -
+server_4-1      | 2024-10-15T07:25:30.114902132Z 172.19.0.4 - - [15/Oct/2024 07:25:30] "POST / HTTP/1.0" 200 -
+server_4-1      | 2024-10-15T07:25:30.133528705Z 172.19.0.4 - - [15/Oct/2024 07:25:30] "POST / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:17:44.363598847Z WARNING: Detected NVIDIA NVIDIA GeForce RTX 4080 SUPER GPU, which is not yet supported in this version of the container
+server_2-1      | 2024-10-15T07:17:44.205661683Z 
+server_2-1      | 2024-10-15T07:17:44.205663533Z Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+server_2-1      | 2024-10-15T07:17:44.205665012Z 
+server_2-1      | 2024-10-15T07:17:44.205666070Z This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+server_2-1      | 2024-10-15T07:17:44.205667096Z By pulling and using the container, you accept the terms and conditions of this license:
+server_2-1      | 2024-10-15T07:17:44.205668193Z https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+server_3-1      | 2024-10-15T07:17:44.222396587Z This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+server_1-1      | 2024-10-15T07:17:44.364879865Z ERROR: No supported GPU(s) detected to run this container
+server_3-1      | 2024-10-15T07:17:44.222398147Z By pulling and using the container, you accept the terms and conditions of this license:
+server_3-1      | 2024-10-15T07:17:44.222399601Z https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+server_1-1      | 2024-10-15T07:17:44.401203415Z 
+server_5-1      | 2024-10-15T07:25:29.761242399Z 172.19.0.4 - - [15/Oct/2024 07:25:29] "POST / HTTP/1.0" 200 -
+nginx_server-1  | 2024-10-15T07:19:31.214301958Z 192.168.8.32 - - [15/Oct/2024:07:19:31 +0000] "POST / HTTP/1.1" 200 1154 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:19:31.219989390Z 192.168.8.32 - - [15/Oct/2024:07:19:31 +0000] "POST / HTTP/1.1" 200 1154 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:19:31.464761387Z 192.168.8.32 - - [15/Oct/2024:07:19:31 +0000] "POST / HTTP/1.1" 200 1156 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:19:31.464766028Z 192.168.8.32 - - [15/Oct/2024:07:19:31 +0000] "POST / HTTP/1.1" 200 1156 "-" "curl/8.6.0" "-"
+server_3-1      | 2024-10-15T07:17:44.292714357Z WARNING: Detected NVIDIA NVIDIA GeForce RTX 4080 SUPER GPU, which is not yet supported in this version of the container
+server_3-1      | 2024-10-15T07:17:44.293565147Z ERROR: No supported GPU(s) detected to run this container
+server_3-1      | 2024-10-15T07:17:44.387418447Z 
+server_3-1      | 2024-10-15T07:17:44.387426379Z NOTE: MOFED driver for multi-node communication was not detected.
+server_1-1      | 2024-10-15T07:17:44.401210731Z NOTE: MOFED driver for multi-node communication was not detected.
+server_1-1      | 2024-10-15T07:17:44.401212481Z       Multi-node communication performance may be reduced.
+server_1-1      | 2024-10-15T07:17:44.402551610Z 
+server_1-1      | 2024-10-15T07:17:57.104982387Z  * Serving Flask app 'demo'
+nginx_server-1  | 2024-10-15T07:19:32.032811128Z 192.168.8.32 - - [15/Oct/2024:07:19:32 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:19:32.038968510Z 192.168.8.32 - - [15/Oct/2024:07:19:32 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:19:32.045155466Z 192.168.8.32 - - [15/Oct/2024:07:19:32 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+server_2-1      | 2024-10-15T07:17:44.264704339Z WARNING: Detected NVIDIA NVIDIA GeForce RTX 4080 SUPER GPU, which is not yet supported in this version of the container
+server_2-1      | 2024-10-15T07:17:44.265915585Z ERROR: No supported GPU(s) detected to run this container
+server_1-1      | 2024-10-15T07:17:57.104999529Z  * Debug mode: on
+server_1-1      | 2024-10-15T07:17:57.108155655Z WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+nginx_server-1  | 2024-10-15T07:19:36.593394074Z 192.168.8.32 - - [15/Oct/2024:07:19:36 +0000] "POST / HTTP/1.1" 200 1154 "-" "curl/8.6.0" "-"
+server_3-1      | 2024-10-15T07:17:44.387428339Z       Multi-node communication performance may be reduced.
+server_3-1      | 2024-10-15T07:17:44.388941487Z 
+server_3-1      | 2024-10-15T07:17:57.180832419Z  * Serving Flask app 'demo'
+server_1-1      | 2024-10-15T07:17:57.108172108Z  * Running on all addresses (0.0.0.0)
+server_1-1      | 2024-10-15T07:17:57.108174033Z  * Running on http://127.0.0.1:5050
+server_1-1      | 2024-10-15T07:17:57.108175312Z  * Running on http://172.19.0.7:5050
+server_1-1      | 2024-10-15T07:17:57.108176510Z Press CTRL+C to quit
+server_1-1      | 2024-10-15T07:17:57.108450442Z  * Restarting with stat
+server_1-1      | 2024-10-15T07:18:07.859401096Z  * Debugger is active!
+server_1-1      | 2024-10-15T07:18:07.876896223Z  * Debugger PIN: 831-829-702
+server_1-1      | 2024-10-15T07:18:07.892031412Z 172.19.0.4 - - [15/Oct/2024 07:18:07] "GET / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:18:07.892831648Z 172.19.0.4 - - [15/Oct/2024 07:18:07] "GET / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:18:10.838334799Z 172.19.0.4 - - [15/Oct/2024 07:18:10] "POST / HTTP/1.0" 200 -
+server_2-1      | 2024-10-15T07:17:44.365842598Z 
+server_2-1      | 2024-10-15T07:17:44.365851968Z NOTE: MOFED driver for multi-node communication was not detected.
+server_2-1      | 2024-10-15T07:17:44.365854310Z       Multi-node communication performance may be reduced.
+nginx_server-1  | 2024-10-15T07:19:37.131033462Z 192.168.8.32 - - [15/Oct/2024:07:19:37 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:19:37.144508159Z 192.168.8.32 - - [15/Oct/2024:07:19:37 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:19:41.636967694Z 192.168.8.32 - - [15/Oct/2024:07:19:41 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:19:41.669051136Z 192.168.8.32 - - [15/Oct/2024:07:19:41 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:19:41.764302042Z 192.168.8.32 - - [15/Oct/2024:07:19:41 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:19:41.764317409Z 192.168.8.32 - - [15/Oct/2024:07:19:41 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+server_1-1      | 2024-10-15T07:18:18.006785622Z 172.19.0.4 - - [15/Oct/2024 07:18:18] "POST / HTTP/1.0" 200 -
+server_3-1      | 2024-10-15T07:17:57.180849810Z  * Debug mode: on
+server_1-1      | 2024-10-15T07:18:29.025597488Z 172.19.0.4 - - [15/Oct/2024 07:18:29] "POST / HTTP/1.0" 200 -
+server_3-1      | 2024-10-15T07:17:57.184800080Z WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+server_3-1      | 2024-10-15T07:17:57.184807869Z  * Running on all addresses (0.0.0.0)
+server_3-1      | 2024-10-15T07:17:57.184810170Z  * Running on http://127.0.0.1:5050
+server_3-1      | 2024-10-15T07:17:57.184812308Z  * Running on http://172.19.0.3:5050
+server_3-1      | 2024-10-15T07:17:57.184814470Z Press CTRL+C to quit
+server_2-1      | 2024-10-15T07:17:44.367511731Z 
+server_2-1      | 2024-10-15T07:17:57.055257657Z  * Serving Flask app 'demo'
+server_2-1      | 2024-10-15T07:17:57.055284774Z  * Debug mode: on
+server_2-1      | 2024-10-15T07:17:57.058950858Z WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+server_2-1      | 2024-10-15T07:17:57.058972580Z  * Running on all addresses (0.0.0.0)
+server_2-1      | 2024-10-15T07:17:57.058974825Z  * Running on http://127.0.0.1:5050
+server_2-1      | 2024-10-15T07:17:57.058976035Z  * Running on http://172.19.0.2:5050
+server_2-1      | 2024-10-15T07:17:57.058982116Z Press CTRL+C to quit
+server_2-1      | 2024-10-15T07:17:57.059300676Z  * Restarting with stat
+server_2-1      | 2024-10-15T07:18:07.884484408Z  * Debugger is active!
+server_2-1      | 2024-10-15T07:18:07.900576923Z  * Debugger PIN: 186-766-764
+server_2-1      | 2024-10-15T07:18:08.009642706Z 172.19.0.4 - - [15/Oct/2024 07:18:08] "GET /favicon.ico HTTP/1.0" 404 -
+server_1-1      | 2024-10-15T07:19:31.201790465Z 172.19.0.4 - - [15/Oct/2024 07:19:31] "POST / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:19:31.211883799Z 172.19.0.4 - - [15/Oct/2024 07:19:31] "POST / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:19:31.212194903Z 172.19.0.4 - - [15/Oct/2024 07:19:31] "POST / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:19:31.212525452Z You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+server_1-1      | 2024-10-15T07:19:31.213138337Z 172.19.0.4 - - [15/Oct/2024 07:19:31] "POST / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:19:31.219720577Z 172.19.0.4 - - [15/Oct/2024 07:19:31] "POST / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:19:31.464119701Z 172.19.0.4 - - [15/Oct/2024 07:19:31] "POST / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:19:31.464298003Z 172.19.0.4 - - [15/Oct/2024 07:19:31] "POST / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:19:32.032565105Z 172.19.0.4 - - [15/Oct/2024 07:19:32] "POST / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:19:32.038663127Z 172.19.0.4 - - [15/Oct/2024 07:19:32] "POST / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:19:32.044996747Z 172.19.0.4 - - [15/Oct/2024 07:19:32] "POST / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:19:36.593035736Z 172.19.0.4 - - [15/Oct/2024 07:19:36] "POST / HTTP/1.0" 200 -
+nginx_server-1  | 2024-10-15T07:19:41.769575539Z 192.168.8.32 - - [15/Oct/2024:07:19:41 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:19:41.774577323Z 192.168.8.32 - - [15/Oct/2024:07:19:41 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:19:41.777973242Z 192.168.8.32 - - [15/Oct/2024:07:19:41 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:21:06.359848381Z 192.168.8.32 - - [15/Oct/2024:07:21:06 +0000] "POST / HTTP/1.1" 200 1154 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:21:06.359942502Z 192.168.8.32 - - [15/Oct/2024:07:21:06 +0000] "POST / HTTP/1.1" 200 1154 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:21:07.126672148Z 192.168.8.32 - - [15/Oct/2024:07:21:07 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:21:07.192258968Z 192.168.8.32 - - [15/Oct/2024:07:21:07 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:21:07.531680928Z 192.168.8.32 - - [15/Oct/2024:07:21:07 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:21:07.543079928Z 192.168.8.32 - - [15/Oct/2024:07:21:07 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:21:07.569192767Z 192.168.8.32 - - [15/Oct/2024:07:21:07 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:21:07.569827579Z 192.168.8.32 - - [15/Oct/2024:07:21:07 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:21:07.657045481Z 192.168.8.32 - - [15/Oct/2024:07:21:07 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:21:07.657361308Z 192.168.8.32 - - [15/Oct/2024:07:21:07 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+server_3-1      | 2024-10-15T07:17:57.185201133Z  * Restarting with stat
+server_1-1      | 2024-10-15T07:19:41.635973444Z 172.19.0.4 - - [15/Oct/2024 07:19:41] "POST / HTTP/1.0" 200 -
+server_2-1      | 2024-10-15T07:18:29.971745976Z 172.19.0.4 - - [15/Oct/2024 07:18:29] "POST / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:19:41.668369322Z 172.19.0.4 - - [15/Oct/2024 07:19:41] "POST / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:19:41.763812526Z 172.19.0.4 - - [15/Oct/2024 07:19:41] "POST / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:19:41.764166832Z 172.19.0.4 - - [15/Oct/2024 07:19:41] "POST / HTTP/1.0" 200 -
+nginx_server-1  | 2024-10-15T07:25:28.845145532Z 192.168.8.32 - - [15/Oct/2024:07:25:28 +0000] "POST / HTTP/1.1" 200 1154 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:25:29.672114063Z 192.168.8.32 - - [15/Oct/2024:07:25:29 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:25:29.761484956Z 192.168.8.32 - - [15/Oct/2024:07:25:29 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:25:29.969584055Z 192.168.8.32 - - [15/Oct/2024:07:25:29 +0000] "POST / HTTP/1.1" 200 1157 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:25:30.102727127Z 192.168.8.32 - - [15/Oct/2024:07:25:30 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:25:30.115048032Z 192.168.8.32 - - [15/Oct/2024:07:25:30 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:25:30.115055264Z 192.168.8.32 - - [15/Oct/2024:07:25:30 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:25:30.133722391Z 192.168.8.32 - - [15/Oct/2024:07:25:30 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+nginx_server-1  | 2024-10-15T07:25:30.214965969Z 192.168.8.32 - - [15/Oct/2024:07:25:30 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+server_1-1      | 2024-10-15T07:19:41.769318913Z 172.19.0.4 - - [15/Oct/2024 07:19:41] "POST / HTTP/1.0" 200 -
+server_3-1      | 2024-10-15T07:18:07.359099923Z  * Debugger is active!
+server_1-1      | 2024-10-15T07:19:41.774557512Z 172.19.0.4 - - [15/Oct/2024 07:19:41] "POST / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:19:41.777829685Z 172.19.0.4 - - [15/Oct/2024 07:19:41] "POST / HTTP/1.0" 200 -
+server_2-1      | 2024-10-15T07:19:37.130904405Z 172.19.0.4 - - [15/Oct/2024 07:19:37] "POST / HTTP/1.0" 200 -
+server_2-1      | 2024-10-15T07:21:07.126544284Z 172.19.0.4 - - [15/Oct/2024 07:21:07] "POST / HTTP/1.0" 200 -
+server_2-1      | 2024-10-15T07:25:29.671991345Z 172.19.0.4 - - [15/Oct/2024 07:25:29] "POST / HTTP/1.0" 200 -
+server_3-1      | 2024-10-15T07:18:07.376244505Z  * Debugger PIN: 783-767-578
+server_3-1      | 2024-10-15T07:18:30.745802596Z 172.19.0.4 - - [15/Oct/2024 07:18:30] "POST / HTTP/1.0" 200 -
+server_3-1      | 2024-10-15T07:19:37.144484270Z 172.19.0.4 - - [15/Oct/2024 07:19:37] "POST / HTTP/1.0" 200 -
+server_3-1      | 2024-10-15T07:21:07.531534504Z 172.19.0.4 - - [15/Oct/2024 07:21:07] "POST / HTTP/1.0" 200 -
+server_3-1      | 2024-10-15T07:21:07.542954714Z 172.19.0.4 - - [15/Oct/2024 07:21:07] "POST / HTTP/1.0" 200 -
+server_3-1      | 2024-10-15T07:25:30.102559130Z 172.19.0.4 - - [15/Oct/2024 07:25:30] "POST / HTTP/1.0" 200 -
+server_3-1      | 2024-10-15T07:25:30.114879960Z 172.19.0.4 - - [15/Oct/2024 07:25:30] "POST / HTTP/1.0" 200 -
+nginx_server-1  | 2024-10-15T07:25:30.239373066Z 192.168.8.32 - - [15/Oct/2024:07:25:30 +0000] "POST / HTTP/1.1" 200 1130 "-" "curl/8.6.0" "-"
+server_1-1      | 2024-10-15T07:21:06.359105966Z 172.19.0.4 - - [15/Oct/2024 07:21:06] "POST / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:21:07.569171192Z 172.19.0.4 - - [15/Oct/2024 07:21:07] "POST / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:21:07.569697487Z 172.19.0.4 - - [15/Oct/2024 07:21:07] "POST / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:25:29.969469726Z 172.19.0.4 - - [15/Oct/2024 07:25:29] "POST / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:25:30.214944827Z 172.19.0.4 - - [15/Oct/2024 07:25:30] "POST / HTTP/1.0" 200 -
+server_1-1      | 2024-10-15T07:25:30.239188198Z 172.19.0.4 - - [15/Oct/2024 07:25:30] "POST / HTTP/1.0" 200 -

@@ -21,6 +21,6 @@ Download the FastText language detection model and place it in the models folder
 wget https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin -P models/
 Set the environment variable det_conf to a suitable confidence threshold for language detection (e.g., 0.5).
 Run the Flask application:
-```
+```console
 python api.py
 ```

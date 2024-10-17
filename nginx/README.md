@@ -1,9 +1,9 @@
 # NGINX Load Balancing Configuration
 ## Overview
-This NGINX configuration defines a load balancing setup for distributing incoming traffic across multiple backend servers (server_1, server_2, etc.) using the least_conn strategy, which directs traffic to the server with the fewest active connections.
+This NGINX configuration defines a load balancing setup for distributing incoming traffic across multiple backend servers (`server_1`, `server_2`, etc.) using the least_conn strategy, which directs traffic to the server with the fewest active connections.
 
 ## Configuration Details
-1. Upstream Block (backend)
+1. **Upstream Block (`backend`)**
 The upstream block defines the backend servers that NGINX will balance traffic across. The least_conn directive ensures that incoming requests are routed to the backend server with the fewest active connections at the time of the request.
 
 ```nginx
@@ -17,8 +17,8 @@ upstream backend {
 }
 ```
 * `least_conn`: This method is used to distribute traffic by sending requests to the server with the least number of active connections, which helps balance the load effectively during high traffic periods.
-* `server server_n:5050`: Defines the individual backend servers (server_1, server_2, etc.), each listening on port 5050.
-2. Server Block
+* `server server_n:5050`: Defines the individual backend servers (`server_1`, `server_2`, etc.), each listening on port `5050`.
+2. **Server Block**
 The server block listens on port 80 (HTTP) and forwards all incoming requests to the backend defined in the upstream block.
 
 ```nginx
@@ -36,7 +36,7 @@ server {
 * `proxy_pass http://backend/`: Proxies the incoming requests to the backend group of servers specified in the upstream block.
 
 ## Load Balancing Method
-* Least Connections (least_conn): This method ensures that the backend server with the fewest active connections is selected to handle the request, which helps improve performance and manage traffic evenly across servers.
+* **Least Connections** (`least_conn`): This method ensures that the backend server with the fewest active connections is selected to handle the request, which helps improve performance and manage traffic evenly across servers.
 
 ## Setup Instructions
 1. **Save the Configuration**: Save the above configuration in your NGINX configuration file (e.g., `/etc/nginx/nginx.conf` or `/etc/nginx/conf.d/load_balancer.conf`).

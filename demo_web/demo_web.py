@@ -7,7 +7,6 @@ app = Flask(__name__)
 # Custom filter for nl2br
 # 自定義過濾器
 @app.template_filter('nl2br')
-@cross_origin()
 def nl2br_filter(s):
     return s.replace('\n', '<br>\n')
 

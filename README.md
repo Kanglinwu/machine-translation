@@ -194,3 +194,21 @@ A Docker container is a runnable instance of a Docker image. Containers are isol
 
 Docker Compose is a tool for defining and managing multi-container Docker applications. With Compose, you can define all your services, networks, and volumes in a single docker-compose.yml file and manage them with simple commands.
 
+## FAQ
+
+1. **What if I can't leverage my GPU?**
+
+Make sure you install `pytorch` with cuda version correctly.
+For more detailed information, you can find in here:
+https://pytorch.org/get-started/previous-versions/
+
+For Linux environment with GPU above 12.4,
+#### Conda
+```conda
+conda install pytorch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 pytorch-cuda=12.4 -c pytorch -c nvidia
+```
+
+#### Wheel
+```wheel
+pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu124
+```

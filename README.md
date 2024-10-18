@@ -164,10 +164,12 @@ This guide outlines the steps to set up multiple servers using Docker and Docker
    
    This command creates an image named `server` from the current directory (`.`), using the Dockerfile in the root of your server project.
 
-2. Build the Nginx Docker Image
+2. **Build the Nginx Docker Image**
+   
    Similarly, to build the Docker image for the Nginx load balancer, use the following command:
    
    ```bash
+   cd nginx
    docker build -t nginx_load_balancer .
    ```
    
@@ -190,9 +192,9 @@ This guide outlines the steps to set up multiple servers using Docker and Docker
 
 ## Components Overview
 
-### NGINX
+### Nginx
 
-NGINX serves as a reverse proxy and load balancer, distributing incoming traffic to multiple server instances for improved performance and reliability.
+Nginx serves as a reverse proxy and load balancer, distributing incoming traffic to multiple server instances for improved performance and reliability.
 
 ### Docker Image
 

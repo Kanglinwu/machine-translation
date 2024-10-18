@@ -156,26 +156,31 @@ This guide outlines the steps to set up multiple servers using Docker and Docker
 
 1. **Build the Server Docker Image**
 
-   Build the Docker image named `server` using the following command:
-
+   To build the Docker image for the server, use the following command:
+   
    ```bash
    docker build -t server .
    ```
-2. **Build the Nginx Docker Image**
    
-   Build the Docker image named `nginx_load_balancer` using the following command:
+   This command creates an image named `server` from the current directory (`.`), using the Dockerfile in the root of your server project.
+
+2. Build the Nginx Docker Image
+   Similarly, to build the Docker image for the Nginx load balancer, use the following command:
+   
    ```bash
    docker build -t nginx_load_balancer .
    ```
+   
+   This will generate an image named `nginx_load_balancer` from the current directory, using the Dockerfile configured for Nginx.
 
-4. **Run Docker Compose**
+3. **Run Docker Compose**
 
     Start the server with Docker Compose while setting the environment variable det_conf:
     
     ```bash
     det_conf=0.3 docker compose up -d
     ```
- 5. **Stop the Server**
+ 4. **Stop the Server**
 
     To stop and remove the running server, execute:
     

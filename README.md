@@ -197,10 +197,11 @@ Docker Compose is a tool for defining and managing multi-container Docker applic
 ## FAQ
 
 1. **What should I do if I can't leverage my GPU?**
-To ensure that you can utilize your GPU effectively, make sure you install the correct version of PyTorch with CUDA support.
+
+   To ensure that you can utilize your GPU effectively, make sure you install the correct version of PyTorch with CUDA support.
+
 
 For more detailed information, visit the PyTorch Previous Versions page.
-
 For Linux environments with GPUs and CUDA version 12.4 or above, follow these installation instructions:
 
 #### Using Conda

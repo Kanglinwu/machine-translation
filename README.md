@@ -201,17 +201,17 @@ Docker Compose is a tool for defining and managing multi-container Docker applic
    To ensure that you can utilize your GPU effectively, make sure you install the correct version of PyTorch with CUDA support.
 
 
-For more detailed information, visit the PyTorch Previous Versions page.
-For Linux environments with GPUs and CUDA version 12.4 or above, follow these installation instructions:
-
-#### Using Conda
-
-```bash
-conda install pytorch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 pytorch-cuda=12.4 -c pytorch -c nvidia
-```
-
-#### Using Pip
-
-```bash
-pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu124
-```
+   For more detailed information, visit the PyTorch Previous Versions page.
+   For Linux environments with GPUs and CUDA version 12.4 or above, follow these installation instructions:
+   
+   **Using Conda**
+   
+   ```bash
+   conda install pytorch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 pytorch-cuda=12.4 -c pytorch -c nvidia
+   ```
+   
+   **Using Pip**
+   
+   ```bash
+   pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu124
+   ```

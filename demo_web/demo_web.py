@@ -18,6 +18,7 @@ def index():
     target_lang: str = "en"  # Target Language. Set default as English
     model_used: str = "None" # Model used
     source_lang:str = "Not detected" # Source Language
+    is_trans: bool = False
     
     if request.method == 'POST':
         input_text = request.form['input_text']

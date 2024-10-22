@@ -1,6 +1,9 @@
 services:
   server_1:
     image: server:latest
+    volumes:
+      - ./tmp/tmp1:/tmp
+      - ./logs/logs1:/app/logs
     environment:
       det_conf: ${det_conf}
     ipc: host
@@ -24,6 +27,9 @@ services:
 
   server_2:
     image: server:latest
+    volumes:
+      - ./tmp/tmp2:/tmp
+      - ./logs/logs2:/app/logs
     environment:
       det_conf: ${det_conf}
     ipc: host
@@ -47,6 +53,9 @@ services:
 
   server_3:
     image: server:latest
+    volumes:
+      - ./tmp/tmp3:/tmp
+      - ./logs/logs3:/app/logs
     environment:
       det_conf: ${det_conf}
     ipc: host
@@ -70,6 +79,9 @@ services:
 
   server_4:
     image: server:latest
+    volumes:
+      - ./tmp/tmp4:/tmp
+      - ./logs/logs4:/app/logs
     environment:
       det_conf: ${det_conf}
     ipc: host
@@ -93,6 +105,9 @@ services:
 
   server_5:
     image: server:latest
+    volumes:
+      - ./tmp/tmp5:/tmp
+      - ./logs/logs5:/app/logs
     environment:
       det_conf: ${det_conf}
     ipc: host
@@ -116,6 +131,9 @@ services:
 
   nginx_server:
     image: nginx_load_balancer
+    volumes:
+      - ./tmp/tmp_nginx:/tmp
+      - ./logs/logs_nginx:/app/logs
     ports:
       - "2486:80"
     networks:

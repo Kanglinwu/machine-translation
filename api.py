@@ -12,6 +12,8 @@ Snake Case (e.g., model_ft, model_name)
 """
 
 from flask import Flask, request, jsonify
+import logging
+from logging.handlers import RotatingFileHandler
 from flask_cors import cross_origin
 import fasttext
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
@@ -19,6 +21,24 @@ import torch
 import json
 from flask import Flask, request, jsonify, Response
 import os
+
+# Configure Logging
+# ------------------------------------------------------------------------------------
+log_file_path = 'logs/api.log'  # Adjust the path based on your Docker volume setup
+os.makedirs(os.path.dirname(log_file_path), exist_ok=True)  # Create the logs directory if it doesn't exist
+
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+# ------------------------------------------------------------------------------------
+
+# Create a rotating file handler
+# ------------------------------------------------------------------------------------
+handler = RotatingFileHandler(log_file_path, maxBytes=5*1024*1024, backupCount=5)  # 5 MB per log file, keep 5 backups
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+# ------------------------------------------------------------------------------------
+
 
 app = Flask(__name__)
 
@@ -110,7 +130,32 @@ def translate():
         "model": "Model used."
     }
     """
+
+    # Check if `det_conf` is valid or not
+    # ------------------------------------------------------------------------------------
+    if not det_conf:
+        error_msg = "det_conf is not set."
+        logger.error(error_msg)  # Log the error
+        return jsonify({"error": error_msg}), 400  # Return a 400 Bad Request response
+
+    try:
+        det_conf_float = float(det_conf)  # Attempt to convert to float
+    except ValueError:
+        error_msg = f"Invalid det_conf value: {det_conf}. Must be a float between 0 and 1."
+        logger.error(error_msg)  # Log the error
+        return jsonify({"error": error_msg}), 400  # Return a 400 Bad Request response
+
+    # Check if det_conf is within the valid range
+    if not (0 <= det_conf_float <= 1):
+        error_msg = "Valid det_conf required (must be a float between 0 and 1)."
+        logger.error(error_msg)  # Log the error
+        return jsonify({"error": error_msg}), 400  # Return a 400 Bad Request response
+
+    # ------------------------------------------------------------------------------------
+
     data = request.get_json()  # 從 JSON 請求中提取數據
+    logger.info(f'Received request data: {data}')
+
     msg = data.get("msg") # Text to be translated
     target_lang = data.get("target_lang") # Language to be translated
 
@@ -119,10 +164,14 @@ def translate():
 
     else:
         if not target_lang:
-            return jsonify({"error": "No target language provided."}), 500
+            error_msg = "No target language provided."
+            logger.error(error_msg)  # Log the error
+            return jsonify({"error": error_msg}), 500
 
         else:
-            return jsonify({"error": "Invalid taraget language."}), 500
+            error_msg = "Invalid taraget language."
+            logger.error(error_msg)  # Log the error
+            return jsonify({"error": error_msg}), 500
 
     # Initialize response object with default values for source language, translation flag, and translated text
     response_text = {
@@ -134,7 +183,9 @@ def translate():
 
     # Check if input text is provided
     if not msg:
-        return jsonify({"error": "No input text provided"}), 500
+        error_msg = "No input text provided."
+        logger.error(error_msg)  # Log the error
+        return jsonify({"error": error_msg}), 500
 
     # Clean input text
     clean_text = msg.replace('\n', ' ').replace('\r', ' ')
@@ -145,6 +196,7 @@ def translate():
     confidence = prediction[1][0] # Language confidence
             
     response_text["source_lang"] = source_lang
+    logger.info(f'Detected language: {source_lang}, Confidence: {confidence}')  # Log detected language and confidence
 
     # Check if source language detected is the same as the target language
     if target_languages[source_lang] == target_lang:
@@ -153,7 +205,7 @@ def translate():
     translated_texts: str = ""
 
     # Check translation confidence and perform translation if confidence is high enough
-    if confidence > float(det_conf):
+    if confidence > det_conf_float:
         try:
             # Perform translation using the translation model
             translation = translator(clean_text, src_lang=target_languages[source_lang], tgt_lang=target_lang)
@@ -161,12 +213,16 @@ def translate():
             response_text["is_trans"] = True
             response_text["target_msg"] = translated_texts
             response_text["model"] = model_name
+            logger.info(f'Successful translation: {translated_texts}')  # Log the successful translation
             return Response(json.dumps(response_text, ensure_ascii=False))
 
         except Exception as e:
-            translated_texts = f"翻譯過程中出錯：{e}"
+            error_msg = f"翻譯過程中出錯：{e}"
+            logger.error(error_msg)  # Log the error
+            return jsonify({"error": error_msg}), 500
         
     else:
+        logger.warning("Confidence level too low for translation.")  # Log warning
         return Response(json.dumps(response_text, ensure_ascii=False)) # 
 
 if __name__ == '__main__':

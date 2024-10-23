@@ -215,7 +215,7 @@ Docker Compose is a tool for defining and managing multi-container Docker applic
    To ensure that you can utilize your GPU effectively, make sure you install the correct version of PyTorch with CUDA support.
 
 
-   For more detailed information, visit the PyTorch Previous Versions page.
+   For more detailed information, visit the [PyTorch Previous Versions page](https://pytorch.org/get-started/previous-versions/).
    For Linux environments with GPUs and CUDA version 12.4 or above, follow these installation instructions:
    
    **Using Conda**

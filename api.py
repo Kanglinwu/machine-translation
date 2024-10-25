@@ -10,17 +10,20 @@ and translate it into a target language using a specified machine translation mo
 Naming Convention:
 Snake Case (e.g., model_ft, model_name)
 """
-
 from flask import Flask, request, jsonify
 import logging
 from logging.handlers import RotatingFileHandler
 from flask_cors import cross_origin
 import fasttext
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
+
 import torch
 import json
 from flask import Flask, request, jsonify, Response
 import os
+
+from utils.text_normalize import remove_punctuations_symbols_emojis
+from utils.lang_dict import target_languages
 
 # Configure Logging
 # ------------------------------------------------------------------------------------
@@ -39,12 +42,7 @@ handler.setFormatter(formatter)
 logger.addHandler(handler)
 # ------------------------------------------------------------------------------------
 
-
 app = Flask(__name__)
-
-# TODO
-# Post Training Quantization
-# 防呆
 
 # Load FastText language detection model
 model_ft = fasttext.load_model('models/lid.176.bin')
@@ -56,11 +54,14 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 trans_model = AutoModelForSeq2SeqLM.from_pretrained(model_name, cache_dir=cache_dir, torch_dtype=torch.bfloat16)
 trans_tokenizer = AutoTokenizer.from_pretrained(model_name, cache_dir=cache_dir, torch_dtype=torch.bfloat16)
-trans_model.to(device)
 
 torch.backends.cuda.enable_flash_sdp = True  # This enables Flash Attention (SDPA)
 torch.backends.cuda.enable_mem_efficient_sdp = True  # Use memory efficient SDPA (if supported)
 torch.backends.cuda.enable_math_sdp = False  # Use this flag to revert to math-based SDPA if needed (less efficient)
+
+# TODO
+# Post Training Quantization
+# -------------------------------------------------------------------------
 
 # Define translation pipeline
 translator = pipeline(
@@ -71,37 +72,7 @@ translator = pipeline(
     device=0 if torch.cuda.is_available() else -1
 )
 
-# Retrieve the value of an environment variable named "det_conf"
-det_conf = os.getenv("det_conf")
-
-# Language code translation for the Translation model
-target_languages = {
-    "en": "eng_Latn",
-    "zh": "zho_Hans",
-    "es": "spa_Latn",
-    "vi": "vie_Latn",
-    "th": "tha_Thai",
-    "ko": "kor_Hang",
-    "ja": "jpn_Jpan",
-    "hi": "hin_Deva",
-    "km": "khm_Khmr",
-    "pt-br": "por_Latn",
-    "fr": "fra_Latn",
-    "de": "deu_Latn",
-    "it": "ita_Latn",
-    "ru": "rus_Cyrl",
-    "ar": "arb_Arab",
-    "tr": "tur_Latn",
-    "nl": "nld_Latn",
-    "pl": "pol_Latn",
-    "sv": "swe_Latn",
-    "da": "dan_Latn",
-    "fi": "fin_Latn",
-    "no": "nob_Latn",
-    "el": "ell_Grek",
-    "he": "heb_Hebr",
-    "hu": "hun_Latn",
-}
+language_options = ["en", "ko", "th", "vi", "zh"]
 
 @app.route('/translate', methods=['POST'])
 @cross_origin()
@@ -124,12 +95,15 @@ def translate():
     - A Flask response object containing the source language, a flag indicating whether translation occurred,
     and the translated text in the target language.
     {
-        "source_lang": "es",
-        "is_trans": true,
+        "source_lang": "Detected Source Language",
+        "is_trans": True,
         "target_msg": "Translated text here."
+        "all_emoji": "If the message is full of emojis.,
         "model": "Model used."
+        "lang_undefined": "If the language is the limited language."
     }
     """
+    det_conf = os.getenv("det_conf")
 
     # Check if `det_conf` is valid or not
     # ------------------------------------------------------------------------------------
@@ -155,8 +129,26 @@ def translate():
 
     data = request.get_json()  # 從 JSON 請求中提取數據
     logger.info(f'Received request data: {data}')
-
+    
     msg = data.get("msg") # Text to be translated
+    msg = remove_punctuations_symbols_emojis(msg)
+
+    # Initialize response object with default values for source language, translation flag, and translated text
+    response_text = {
+        "source_lang": "",
+        "is_trans": False,
+        "target_msg": msg,
+        "all_emoji": False,
+        "model": "None",
+        "lang_undefined": False
+    }
+
+    if len(msg.strip(' ')) == 0:
+        logger.info("All emojis, meaningless data.")
+        response_text["all_emoji"] = True
+        return Response(json.dumps(response_text, ensure_ascii=False))
+
+    logger.info(f"Normalized text: {msg}")
     target_lang = data.get("target_lang") # Language to be translated
 
     if target_lang in target_languages.keys():
@@ -172,14 +164,6 @@ def translate():
             error_msg = "Invalid taraget language."
             logger.error(error_msg)  # Log the error
             return jsonify({"error": error_msg}), 500
-
-    # Initialize response object with default values for source language, translation flag, and translated text
-    response_text = {
-        "source_lang": "",
-        "is_trans": False,
-        "target_msg": msg,
-        "model": "None"
-    }
 
     # Check if input text is provided
     if not msg:
@@ -198,8 +182,14 @@ def translate():
     response_text["source_lang"] = source_lang
     logger.info(f'Detected language: {source_lang}, Confidence: {confidence}')  # Log detected language and confidence
 
+    if source_lang not in language_options:
+        logger.info(f'Unidentified language.')
+        response_text["lang_unidentified"] = True
+        return Response(json.dumps(response_text, ensure_ascii=False))
+
     # Check if source language detected is the same as the target language
     if target_languages[source_lang] == target_lang:
+        logger.info(f'The source language is same as the target language.')
         return Response(json.dumps(response_text, ensure_ascii=False))
 
     translated_texts: str = ""

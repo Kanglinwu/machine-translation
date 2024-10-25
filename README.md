@@ -144,7 +144,9 @@ Upon making the request, you will receive a response in JSON format similar to t
    "source_lang": "en",
    "is_trans": true,
    "target_msg": "你在哪里?",
+   "all_emoji": false,
    "model": "facebook/nllb-200-distilled-600M"
+   "lang_undefined": false
 }
 ```
 

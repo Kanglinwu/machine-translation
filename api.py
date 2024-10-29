@@ -133,8 +133,7 @@ def translate():
     logger.info(f'Received request data: {data}')
     
     msg = data.get("msg") # Text to be translated
-    msg = remove_punctuations_symbols_emojis(msg)
-
+    
     # Initialize response object with default values for source language, translation flag, and translated text
     response_text = {
         "source_lang": "",
@@ -145,8 +144,9 @@ def translate():
         "lang_undefined": False
     }
 
-  
     # Text Normalization
+    msg = remove_punctuations_symbols_emojis(msg)
+  
     if len(msg.strip(' ')) == 0:
         logger.info("All emojis, meaningless data.")
         response_text["all_emoji"] = True

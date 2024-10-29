@@ -111,12 +111,17 @@ This endpoint accepts a JSON payload containing the message to be translated and
     "source_lang": "es",
     "is_trans": true,
     "target_msg": "Translated text here.",
-    "model": "Model used."
+    "all_emoji": false,
+    "model": "facebook/nllb-200-distilled-600M",
+    "lang_undefined": false
 }
 ```
 * `source_lang`: Detected language of the input text.
 * `is_trans`: Boolean indicating whether translation occurred.
 * `target_msg`: Either the translated message or the original if no translation was needed.
+* `all_emoji`: Boolean indicating whether message is all emojis.
+* `model`: The model used for translation.
+* `lang_undefined`: Boolean indicating whether language is out of service scope.
 
 #### Error Handling:
 
@@ -145,7 +150,7 @@ Upon making the request, you will receive a response in JSON format similar to t
    "is_trans": true,
    "target_msg": "你在哪里?",
    "all_emoji": false,
-   "model": "facebook/nllb-200-distilled-600M"
+   "model": "facebook/nllb-200-distilled-600M",
    "lang_undefined": false
 }
 ```

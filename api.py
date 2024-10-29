@@ -48,9 +48,16 @@ app = Flask(__name__)
 model_ft = fasttext.load_model('models/lid.176.bin')
 
 # Load translation model and tokenizer
-model_name = "facebook/nllb-200-distilled-600M"
+model_name = "facebook/nllb-200-distilled-1.3B"
 cache_dir = "./models"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+
+# TODO
+# Post Training Quantization
+# -------------------------------------------------------------------------
+
+# -------------------------------------------------------------------------
 
 trans_model = AutoModelForSeq2SeqLM.from_pretrained(model_name, cache_dir=cache_dir, torch_dtype=torch.bfloat16)
 trans_tokenizer = AutoTokenizer.from_pretrained(model_name, cache_dir=cache_dir, torch_dtype=torch.bfloat16)
@@ -59,17 +66,12 @@ torch.backends.cuda.enable_flash_sdp = True  # This enables Flash Attention (SDP
 torch.backends.cuda.enable_mem_efficient_sdp = True  # Use memory efficient SDPA (if supported)
 torch.backends.cuda.enable_math_sdp = False  # Use this flag to revert to math-based SDPA if needed (less efficient)
 
-# TODO
-# Post Training Quantization
-# -------------------------------------------------------------------------
-
 # Define translation pipeline
 translator = pipeline(
     'translation',
     model=trans_model,
     tokenizer=trans_tokenizer,
     max_length=512,
-    device=0 if torch.cuda.is_available() else -1
 )
 
 language_options = ["en", "ko", "th", "vi", "zh"]
@@ -143,27 +145,29 @@ def translate():
         "lang_undefined": False
     }
 
+  
+    # Text Normalization
     if len(msg.strip(' ')) == 0:
         logger.info("All emojis, meaningless data.")
         response_text["all_emoji"] = True
         return Response(json.dumps(response_text, ensure_ascii=False))
 
     logger.info(f"Normalized text: {msg}")
+
+    # Check target language
     target_lang = data.get("target_lang") # Language to be translated
 
-    if target_lang in target_languages.keys():
-        target_lang = target_languages[target_lang]
+    if not target_lang:
+        error_msg = "No target language provided."
+        logger.error(error_msg)  # Log the error
+        return jsonify({"error": error_msg}), 500
+  
+    if target_lang not in target_languages.keys():
+        error_msg = "Invalid taraget language."
+        logger.error(error_msg)  # Log the error
+        return jsonify({"error": error_msg}), 500
 
-    else:
-        if not target_lang:
-            error_msg = "No target language provided."
-            logger.error(error_msg)  # Log the error
-            return jsonify({"error": error_msg}), 500
-
-        else:
-            error_msg = "Invalid taraget language."
-            logger.error(error_msg)  # Log the error
-            return jsonify({"error": error_msg}), 500
+    target_lang = target_languages[target_lang]
 
     # Check if input text is provided
     if not msg:

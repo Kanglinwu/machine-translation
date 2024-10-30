@@ -11,6 +11,7 @@ Naming Convention:
 Snake Case (e.g., model_ft, model_name)
 """
 from flask import Flask, request, jsonify
+from gevent import pywsgi
 import logging
 from logging.handlers import RotatingFileHandler
 from flask_cors import cross_origin
@@ -220,4 +221,5 @@ def translate():
         return Response(json.dumps(response_text, ensure_ascii=False)) # 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5050, debug=True)
+    server = pywsgi.WSGIServer(('0.0.0.0', 5050), app)
+    server.serve_forever()

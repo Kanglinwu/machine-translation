@@ -5,3 +5,4 @@ fasttext==0.9.3
 transformers==4.45.2
 torch==2.4.1
 flask_cors==5.0.0
+gevent==23.9.1

@@ -1,4 +1,4 @@
-target_languages = {
+langCode_convert = {
     "af": "afr_Latn",
     "am": "amh_Ethi",
     "ar": "arb_Arab",

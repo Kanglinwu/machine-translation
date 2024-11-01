@@ -16,7 +16,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 from flask_cors import cross_origin
 import fasttext
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline, BitsAndBytesConfig
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 
 import torch
 import json

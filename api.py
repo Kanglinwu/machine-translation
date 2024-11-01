@@ -24,7 +24,7 @@ from flask import Flask, request, jsonify, Response
 import os
 
 from utils.text_normalize import remove_punctuations_symbols_emojis
-from utils.lang_dict import target_languages
+from utils.lang_dict import langCode_convert
 from utils.merge_words import interleave_lists
 
 # Configure Logging
@@ -178,12 +178,12 @@ def translate():
         logger.error(error_msg)  # Log the error
         return jsonify({"error": error_msg}), 500
   
-    if target_lang not in target_languages.keys():
+    if target_lang not in langCode_convert.keys():
         error_msg = "Invalid taraget language."
         logger.error(error_msg)  # Log the error
         return jsonify({"error": error_msg}), 500
 
-    target_lang = target_languages[target_lang]
+    target_lang = langCode_convert[target_lang]
 
     # Clean input text
     clean_text = [message.replace('\n', ' ').replace('\r', ' ') for message in msgs]
@@ -202,7 +202,7 @@ def translate():
         return Response(json.dumps(response_text, ensure_ascii=False))
 
     # Check if source language detected is the same as the target language
-    if target_languages[source_lang] == target_lang:
+    if langCode_convert[source_lang] == target_lang:
         logger.info(f'The source language is same as the target language.')
         return Response(json.dumps(response_text, ensure_ascii=False))
 
@@ -212,7 +212,7 @@ def translate():
     if confidence > det_conf_float:
         try:
             # Perform translation using the translation model
-            translation = translator(clean_text, src_lang=target_languages[source_lang], tgt_lang=target_lang)
+            translation = translator(clean_text, src_lang=langCode_convert[source_lang], tgt_lang=target_lang)
             
             translated_texts = [translated['translation_text'] for translated in translation]
             translated_texts = interleave_lists(emojis, translated_texts) if firstIndex else interleave_lists(translated_texts, emojis)

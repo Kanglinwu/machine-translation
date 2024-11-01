@@ -59,10 +59,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # TODO
 # Post Training Quantization
 # -------------------------------------------------------------------------
-quantization_config = BitsAndBytesConfig(load_in_8bit=True,
-                                         llm_int8_enable_fp32_cpu_offload=True,
-                                         llm_int8_threshold=10.0,
-                                         )
+
 # -------------------------------------------------------------------------
 
 trans_model = AutoModelForSeq2SeqLM.from_pretrained(model_name, cache_dir=cache_dir, torch_dtype=torch.bfloat16)

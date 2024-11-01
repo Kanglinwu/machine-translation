@@ -16,7 +16,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 from flask_cors import cross_origin
 import fasttext
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline, BitsAndBytesConfig
 
 import torch
 import json
@@ -25,13 +25,14 @@ import os
 
 from utils.text_normalize import remove_punctuations_symbols_emojis
 from utils.lang_dict import target_languages
+from utils.merge_words import interleave_lists
 
 # Configure Logging
 # ------------------------------------------------------------------------------------
 log_file_path = 'logs/api.log'  # Adjust the path based on your Docker volume setup
 os.makedirs(os.path.dirname(log_file_path), exist_ok=True)  # Create the logs directory if it doesn't exist
 
-logger = logging.getLogger()
+logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 # ------------------------------------------------------------------------------------
 
@@ -40,8 +41,9 @@ logger.setLevel(logging.DEBUG)
 handler = RotatingFileHandler(log_file_path, maxBytes=5*1024*1024, backupCount=5)  # 5 MB per log file, keep 5 backups
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 handler.setFormatter(formatter)
+
 logger.addHandler(handler)
-# ------------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------
 
 app = Flask(__name__)
 
@@ -49,7 +51,7 @@ app = Flask(__name__)
 model_ft = fasttext.load_model('models/lid.176.bin')
 
 # Load translation model and tokenizer
-model_name = "facebook/nllb-200-distilled-1.3B"
+model_name = "facebook/nllb-200-distilled-600M"
 cache_dir = "./models"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -57,7 +59,10 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # TODO
 # Post Training Quantization
 # -------------------------------------------------------------------------
-
+quantization_config = BitsAndBytesConfig(load_in_8bit=True,
+                                         llm_int8_enable_fp32_cpu_offload=True,
+                                         llm_int8_threshold=10.0,
+                                         )
 # -------------------------------------------------------------------------
 
 trans_model = AutoModelForSeq2SeqLM.from_pretrained(model_name, cache_dir=cache_dir, torch_dtype=torch.bfloat16)
@@ -73,6 +78,7 @@ translator = pipeline(
     model=trans_model,
     tokenizer=trans_tokenizer,
     max_length=512,
+    device=device
 )
 
 language_options = ["en", "ko", "th", "vi", "zh"]
@@ -134,7 +140,13 @@ def translate():
     logger.info(f'Received request data: {data}')
     
     msg = data.get("msg") # Text to be translated
-    
+
+    # Check if input text is provided
+    if not msg:
+        error_msg = "No input text provided."
+        logger.error(error_msg)  # Log the error
+        return jsonify({"error": error_msg}), 500
+
     # Initialize response object with default values for source language, translation flag, and translated text
     response_text = {
         "source_lang": "",
@@ -145,15 +157,18 @@ def translate():
         "lang_undefined": False
     }
 
+    # msgs: A list of message
+    # emojis: A list of emojis ready for inserting
+    # firstIndex: boolean, check if the message starts with emojis or words
+    msgs, emojis, firstIndex = remove_punctuations_symbols_emojis(msg)
+
     # Text Normalization
-    msg = remove_punctuations_symbols_emojis(msg)
-  
-    if len(msg.strip(' ')) == 0:
+    if len(msgs) == 0:
         logger.info("All emojis, meaningless data.")
         response_text["all_emoji"] = True
         return Response(json.dumps(response_text, ensure_ascii=False))
 
-    logger.info(f"Normalized text: {msg}")
+    logger.info(f"Normalized text: {' '.join(msgs)}")
 
     # Check target language
     target_lang = data.get("target_lang") # Language to be translated
@@ -170,17 +185,11 @@ def translate():
 
     target_lang = target_languages[target_lang]
 
-    # Check if input text is provided
-    if not msg:
-        error_msg = "No input text provided."
-        logger.error(error_msg)  # Log the error
-        return jsonify({"error": error_msg}), 500
-
     # Clean input text
-    clean_text = msg.replace('\n', ' ').replace('\r', ' ')
+    clean_text = [message.replace('\n', ' ').replace('\r', ' ') for message in msgs]
     
     # Language Detection
-    prediction = model_ft.predict(clean_text, k=1)
+    prediction = model_ft.predict(' '.join(clean_text), k=1)
     source_lang = prediction[0][0].replace('__label__', '') # Predicted language
     confidence = prediction[1][0] # Language confidence
             
@@ -204,7 +213,10 @@ def translate():
         try:
             # Perform translation using the translation model
             translation = translator(clean_text, src_lang=target_languages[source_lang], tgt_lang=target_lang)
-            translated_texts = translation[0]['translation_text']
+            
+            translated_texts = [translated['translation_text'] for translated in translation]
+            translated_texts = interleave_lists(emojis, translated_texts) if firstIndex else interleave_lists(translated_texts, emojis)
+
             response_text["is_trans"] = True
             response_text["target_msg"] = translated_texts
             response_text["model"] = model_name

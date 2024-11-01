@@ -1,9 +1,10 @@
 # To-Do
 1. Post Training Quantization (TensorRT)
 2. Explore better model
-3. Caching (Redis)
-4. Asynchronous logging
-5. ReadMe
+* Language Detection: Lingua-py
+4. Caching (Redis)
+5. Asynchronous logging
+6. ReadMe
 
 ## Focus Point
 1. Scalability

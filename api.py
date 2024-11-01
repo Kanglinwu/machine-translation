@@ -157,8 +157,8 @@ def translate():
         "lang_undefined": False
     }
 
-    # msgs: A list of message
-    # emojis: A list of emojis ready for inserting
+    # msgs: A list of messages separated by emoji groups
+    # emojis: A list of emoji groups ready for inserting
     # firstIndex: boolean, check if the message starts with emojis or words
     msgs, emojis, firstIndex = remove_punctuations_symbols_emojis(msg)
 

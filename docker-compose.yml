@@ -1,6 +1,6 @@
 services:
   server_1_cuda0:
-    image: server:latest
+    image: server:mg
     volumes:
       - ./tmp/tmp1:/tmp
       - ./logs/logs1:/app/logs
@@ -27,7 +27,7 @@ services:
       - loadbalance_net
 
   server_2_cuda0:
-    image: server:latest
+    image: server:mg
     volumes:
       - ./tmp/tmp2:/tmp
       - ./logs/logs2:/app/logs
@@ -54,7 +54,7 @@ services:
       - loadbalance_net
 
   server_3_cuda0:
-    image: server:latest
+    image: server:mg
     volumes:
       - ./tmp/tmp3:/tmp
       - ./logs/logs3:/app/logs
@@ -81,7 +81,7 @@ services:
       - loadbalance_net
 
   server_4_cuda0:
-    image: server:latest
+    image: server:mg
     volumes:
       - ./tmp/tmp4:/tmp
       - ./logs/logs4:/app/logs
@@ -108,7 +108,7 @@ services:
       - loadbalance_net
 
   server_5_cuda0:
-    image: server:latest
+    image: server:mg
     volumes:
       - ./tmp/tmp5:/tmp
       - ./logs/logs5:/app/logs
@@ -135,7 +135,7 @@ services:
       - loadbalance_net
 
   nginx_server:
-    image: nginx_load_balancer
+    image: nginx_load_balancer:mg
     volumes:
       - ./tmp/tmp_nginx:/tmp
       - ./logs/logs_nginx:/app/logs

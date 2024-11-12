@@ -395,3 +395,35 @@
 2024-10-22 02:46:27,553 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:46:27] "OPTIONS /translate HTTP/1.0" 200 -
 2024-10-22 02:46:29,943 - root - INFO - Received request data: {'msg': 'โดนทุกไม้', 'target_lang': 'en'}
 2024-10-22 02:46:29,943 - root - INFO - Detected language: th, Confidence: 0.999633252620697
+2024-11-12 07:25:18,675 - __main__ - INFO - Received request data: {'msg': 'Where are you', 'target_lang': 'zh'}
+2024-11-12 07:25:18,678 - __main__ - INFO - Normalized text: Where are you
+2024-11-12 07:25:18,678 - __main__ - INFO - Detected language: en, Confidence: 0.9899371862411499
+2024-11-12 07:25:18,859 - __main__ - INFO - Successful translation: 你在哪里?
+2024-11-12 07:25:20,843 - __main__ - INFO - Received request data: {'msg': 'Where are you', 'target_lang': 'zh'}
+2024-11-12 07:25:20,843 - __main__ - INFO - Normalized text: Where are you
+2024-11-12 07:25:20,843 - __main__ - INFO - Detected language: en, Confidence: 0.9899371862411499
+2024-11-12 07:25:20,872 - __main__ - INFO - Successful translation: 你在哪里?
+2024-11-12 07:25:39,126 - __main__ - INFO - Received request data: {'msg': 'Where are you', 'target_lang': 'zh'}
+2024-11-12 07:25:39,127 - __main__ - INFO - Normalized text: Where are you
+2024-11-12 07:25:39,127 - __main__ - INFO - Detected language: en, Confidence: 0.9899371862411499
+2024-11-12 07:25:39,204 - __main__ - INFO - Successful translation: 你在哪里?
+2024-11-12 07:25:40,352 - __main__ - INFO - Received request data: {'msg': 'Where are you', 'target_lang': 'zh'}
+2024-11-12 07:25:40,352 - __main__ - INFO - Normalized text: Where are you
+2024-11-12 07:25:40,352 - __main__ - INFO - Detected language: en, Confidence: 0.9899371862411499
+2024-11-12 07:25:40,382 - __main__ - INFO - Successful translation: 你在哪里?
+2024-11-12 07:25:42,407 - __main__ - INFO - Received request data: {'msg': 'Where are you', 'target_lang': 'zh'}
+2024-11-12 07:25:42,407 - __main__ - INFO - Normalized text: Where are you
+2024-11-12 07:25:42,408 - __main__ - INFO - Detected language: en, Confidence: 0.9899371862411499
+2024-11-12 07:25:42,437 - __main__ - INFO - Successful translation: 你在哪里?
+2024-11-12 07:25:43,206 - __main__ - INFO - Received request data: {'msg': 'Where are you', 'target_lang': 'zh'}
+2024-11-12 07:25:43,206 - __main__ - INFO - Normalized text: Where are you
+2024-11-12 07:25:43,207 - __main__ - INFO - Detected language: en, Confidence: 0.9899371862411499
+2024-11-12 07:25:43,236 - __main__ - INFO - Successful translation: 你在哪里?
+2024-11-12 07:26:02,438 - __main__ - INFO - Received request data: {'msg': 'Where are you', 'target_lang': 'zh'}
+2024-11-12 07:26:02,439 - __main__ - INFO - Normalized text: Where are you
+2024-11-12 07:26:02,439 - __main__ - INFO - Detected language: en, Confidence: 0.9899371862411499
+2024-11-12 07:26:02,519 - __main__ - INFO - Successful translation: 你在哪里?
+2024-11-12 07:26:03,082 - __main__ - INFO - Received request data: {'msg': 'Where are you', 'target_lang': 'zh'}
+2024-11-12 07:26:03,082 - __main__ - INFO - Normalized text: Where are you
+2024-11-12 07:26:03,082 - __main__ - INFO - Detected language: en, Confidence: 0.9899371862411499
+2024-11-12 07:26:03,108 - __main__ - INFO - Successful translation: 你在哪里?

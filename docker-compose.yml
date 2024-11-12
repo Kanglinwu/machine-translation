@@ -26,104 +26,23 @@ services:
     networks:
       - loadbalance_net
 
-  server_2_cuda0:
+  server_1_cuda1:
     image: server:mg
     volumes:
-      - ./tmp/tmp2:/tmp
-      - ./logs/logs2:/app/logs
+      - ./tmp/tmp1:/tmp
+      - ./logs/logs1:/app/logs
     environment:
       det_conf: ${det_conf}
-      GPU_ID: 0
+      GPU_ID: 1
     ipc: host
     ports:
-      - "2020:5050"
+      - "1011:5050"
     deploy:
       resources:
         reservations:
           devices:
             - driver: nvidia
-              device_ids: ['0']
-              capabilities: [gpu]
-    command: python api.py
-    logging:
-      driver: "local"
-      options:
-        max-size: "100m"
-        max-file: "14"
-    networks:
-      - loadbalance_net
-
-  server_3_cuda0:
-    image: server:mg
-    volumes:
-      - ./tmp/tmp3:/tmp
-      - ./logs/logs3:/app/logs
-    environment:
-      det_conf: ${det_conf}
-      GPU_ID: 0
-    ipc: host
-    ports:
-      - "3030:5050"
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              device_ids: ['0']
-              capabilities: [gpu]
-    command: python api.py
-    logging:
-      driver: "local"
-      options:
-        max-size: "100m"
-        max-file: "14"
-    networks:
-      - loadbalance_net
-
-  server_4_cuda0:
-    image: server:mg
-    volumes:
-      - ./tmp/tmp4:/tmp
-      - ./logs/logs4:/app/logs
-    environment:
-      det_conf: ${det_conf}
-      GPU_ID: 0
-    ipc: host
-    ports:
-      - "4040:5050"
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              device_ids: ['0']
-              capabilities: [gpu]
-    command: python api.py
-    logging:
-      driver: "local"
-      options:
-        max-size: "100m"
-        max-file: "14"
-    networks:
-      - loadbalance_net
-
-  server_5_cuda0:
-    image: server:mg
-    volumes:
-      - ./tmp/tmp5:/tmp
-      - ./logs/logs5:/app/logs
-    environment:
-      det_conf: ${det_conf}
-      GPU_ID: 0
-    ipc: host
-    ports:
-      - "6060:5050"
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              device_ids: ['0']
+              device_ids: ['1']
               capabilities: [gpu]
     command: python api.py
     logging:

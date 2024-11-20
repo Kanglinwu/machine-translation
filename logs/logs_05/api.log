@@ -1,0 +1,329 @@
+2024-10-18 08:55:00,184 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-10-18 08:55:00,382 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/config.json HTTP/1.1" 200 0
+2024-10-18 08:55:00,587 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-10-18 08:55:07,265 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/generation_config.json HTTP/1.1" 200 0
+2024-10-18 08:55:07,547 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-10-18 08:55:08,642 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://172.18.0.7:5050
+2024-10-18 08:55:08,642 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-10-18 08:55:08,643 - werkzeug - INFO -  * Restarting with stat
+2024-10-18 08:55:10,478 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-10-18 08:55:10,704 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/config.json HTTP/1.1" 200 0
+2024-10-18 08:55:11,265 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-10-18 08:55:16,430 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/generation_config.json HTTP/1.1" 200 0
+2024-10-18 08:55:16,636 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-10-18 08:55:17,588 - werkzeug - WARNING -  * Debugger is active!
+2024-10-18 08:55:17,608 - werkzeug - INFO -  * Debugger PIN: 421-093-162
+2024-10-18 08:55:33,616 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-10-18 08:55:33,833 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/config.json HTTP/1.1" 200 0
+2024-10-18 08:55:34,036 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-10-18 08:55:43,236 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/generation_config.json HTTP/1.1" 200 0
+2024-10-18 08:55:43,441 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-10-18 08:55:44,435 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://172.18.0.4:5050
+2024-10-18 08:55:44,436 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-10-18 08:55:44,436 - werkzeug - INFO -  * Restarting with stat
+2024-10-18 08:55:46,337 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-10-18 08:55:46,884 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/config.json HTTP/1.1" 200 0
+2024-10-18 08:55:47,087 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-10-18 08:55:52,394 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/generation_config.json HTTP/1.1" 200 0
+2024-10-18 08:55:52,610 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-10-18 08:55:53,502 - werkzeug - WARNING -  * Debugger is active!
+2024-10-18 08:55:53,520 - werkzeug - INFO -  * Debugger PIN: 785-716-023
+2024-10-18 08:57:51,993 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-10-18 08:57:52,213 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/config.json HTTP/1.1" 200 0
+2024-10-18 08:57:52,407 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-10-18 08:58:00,758 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/generation_config.json HTTP/1.1" 200 0
+2024-10-18 08:58:00,965 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-10-18 08:58:02,157 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://172.18.0.7:5050
+2024-10-18 08:58:02,157 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-10-18 08:58:02,157 - werkzeug - INFO -  * Restarting with stat
+2024-10-18 08:58:04,036 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-10-18 08:58:04,571 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/config.json HTTP/1.1" 200 0
+2024-10-18 08:58:04,786 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-10-18 08:58:11,379 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/generation_config.json HTTP/1.1" 200 0
+2024-10-18 08:58:11,606 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-10-18 08:58:12,903 - werkzeug - WARNING -  * Debugger is active!
+2024-10-18 08:58:12,936 - werkzeug - INFO -  * Debugger PIN: 421-093-162
+2024-10-18 09:10:01,150 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-10-18 09:10:01,402 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/config.json HTTP/1.1" 200 0
+2024-10-18 09:10:01,610 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-10-18 09:10:10,268 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/generation_config.json HTTP/1.1" 200 0
+2024-10-18 09:10:10,485 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-10-18 09:10:11,582 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://172.18.0.3:5050
+2024-10-18 09:10:11,582 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-10-18 09:10:11,582 - werkzeug - INFO -  * Restarting with stat
+2024-10-18 09:10:13,505 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-10-18 09:10:13,700 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/config.json HTTP/1.1" 200 0
+2024-10-18 09:10:13,898 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-10-18 09:10:14,513 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/generation_config.json HTTP/1.1" 200 0
+2024-10-18 09:10:14,773 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /facebook/nllb-200-distilled-600M/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-10-18 09:10:16,089 - werkzeug - WARNING -  * Debugger is active!
+2024-10-18 09:10:16,113 - werkzeug - INFO -  * Debugger PIN: 527-624-548
+2024-10-22 02:41:01,437 - root - INFO - Received request data: {'msg': 'จบ', 'target_lang': 'en'}
+2024-10-22 02:41:01,438 - root - INFO - Detected language: th, Confidence: 1.0000637769699097
+2024-10-22 02:41:01,593 - root - INFO - Successful translation: It's over.
+2024-10-22 02:41:01,594 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:41:01] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:41:03,616 - root - INFO - Received request data: {'msg': 'สนิท', 'target_lang': 'en'}
+2024-10-22 02:41:03,617 - root - INFO - Detected language: th, Confidence: 1.0000723600387573
+2024-10-22 02:41:03,645 - root - INFO - Successful translation: What's going on?
+2024-10-22 02:41:03,645 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:41:03] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:41:04,516 - root - INFO - Received request data: {'msg': 'ดีนะไม่มา', 'target_lang': 'en'}
+2024-10-22 02:41:04,516 - root - INFO - Detected language: th, Confidence: 1.0000765323638916
+2024-10-22 02:41:04,551 - root - INFO - Successful translation: Good. I'm not coming.
+2024-10-22 02:41:04,551 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:41:04] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:41:06,040 - root - INFO - Received request data: {'msg': 'อาการหนัก', 'target_lang': 'en'}
+2024-10-22 02:41:06,040 - root - INFO - Detected language: th, Confidence: 1.0000799894332886
+2024-10-22 02:41:06,076 - root - INFO - Successful translation: He's got a bad heart.
+2024-10-22 02:41:06,076 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:41:06] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:41:09,612 - root - INFO - Received request data: {'msg': 'น้ำเงิน', 'target_lang': 'en'}
+2024-10-22 02:41:09,613 - root - INFO - Detected language: th, Confidence: 1.0000797510147095
+2024-10-22 02:41:09,633 - root - INFO - Successful translation: The money.
+2024-10-22 02:41:09,634 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:41:09] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:41:16,965 - root - INFO - Received request data: {'msg': 'ไหลๆ', 'target_lang': 'en'}
+2024-10-22 02:41:16,966 - root - INFO - Detected language: th, Confidence: 0.9998224973678589
+2024-10-22 02:41:16,995 - root - INFO - Successful translation: It's a lot.
+2024-10-22 02:41:16,995 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:41:16] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:41:22,619 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:41:22] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:41:23,791 - root - INFO - Received request data: {'msg': 'มินดิไอคอน55', 'target_lang': 'en'}
+2024-10-22 02:41:23,791 - root - INFO - Detected language: th, Confidence: 0.9974566102027893
+2024-10-22 02:41:23,832 - root - INFO - Successful translation: Icon 55 is a mind.
+2024-10-22 02:41:23,832 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:41:23] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:41:27,950 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:41:27] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:41:29,603 - root - INFO - Received request data: {'msg': 'เขียววว', 'target_lang': 'en'}
+2024-10-22 02:41:29,603 - root - INFO - Detected language: th, Confidence: 1.0000149011611938
+2024-10-22 02:41:29,630 - root - INFO - Successful translation: Oh, my God.
+2024-10-22 02:41:29,630 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:41:29] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:41:34,842 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:41:34] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:41:36,905 - root - INFO - Received request data: {'msg': 'แดงโบแตกมา', 'target_lang': 'en'}
+2024-10-22 02:41:36,905 - root - INFO - Detected language: th, Confidence: 0.9971913695335388
+2024-10-22 02:41:36,947 - root - INFO - Successful translation: The spark is coming.
+2024-10-22 02:41:36,948 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:41:36] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:41:43,046 - root - INFO - Received request data: {'msg': 'สวย', 'target_lang': 'en'}
+2024-10-22 02:41:43,046 - root - INFO - Detected language: th, Confidence: 1.0000799894332886
+2024-10-22 02:41:43,074 - root - INFO - Successful translation: It's beautiful.
+2024-10-22 02:41:43,074 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:41:43] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:41:46,208 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:41:46] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:41:50,823 - root - INFO - Received request data: {'msg': 'อรจ้า', 'target_lang': 'en'}
+2024-10-22 02:41:50,823 - root - INFO - Detected language: th, Confidence: 1.000079870223999
+2024-10-22 02:41:50,855 - root - INFO - Successful translation: I'm going to go.
+2024-10-22 02:41:50,855 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:41:50] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:41:54,818 - root - INFO - Received request data: {'msg': 'นมสวย', 'target_lang': 'en'}
+2024-10-22 02:41:54,819 - root - INFO - Detected language: th, Confidence: 0.9975807070732117
+2024-10-22 02:41:54,855 - root - INFO - Successful translation: That's a lovely milk.
+2024-10-22 02:41:54,855 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:41:54] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:41:56,906 - root - INFO - Received request data: {'msg': 'อีกเม็ดไหม', 'target_lang': 'en'}
+2024-10-22 02:41:56,907 - root - INFO - Detected language: th, Confidence: 0.999674379825592
+2024-10-22 02:41:56,940 - root - INFO - Successful translation: Another one?
+2024-10-22 02:41:56,940 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:41:56] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:42:00,700 - root - INFO - Received request data: {'msg': 'ต ง', 'target_lang': 'en'}
+2024-10-22 02:42:00,700 - root - INFO - Detected language: th, Confidence: 1.0000799894332886
+2024-10-22 02:42:00,729 - root - INFO - Successful translation: The sun.
+2024-10-22 02:42:00,730 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:42:00] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:42:02,785 - root - INFO - Received request data: {'msg': '💔💔💔💅', 'target_lang': 'en'}
+2024-10-22 02:42:02,785 - root - INFO - Detected language: pt, Confidence: 0.4833295941352844
+2024-10-22 02:42:02,792 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:42:02] "[35m[1mPOST /translate HTTP/1.0[0m" 500 -
+2024-10-22 02:42:07,347 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:42:07] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:42:09,421 - root - INFO - Received request data: {'msg': 'แดงสวยๆครับ', 'target_lang': 'en'}
+2024-10-22 02:42:09,421 - root - INFO - Detected language: th, Confidence: 1.0000547170639038
+2024-10-22 02:42:09,465 - root - INFO - Successful translation: That's a beautiful piece.
+2024-10-22 02:42:09,466 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:42:09] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:42:14,297 - root - INFO - Received request data: {'msg': 'สวยๆ', 'target_lang': 'en'}
+2024-10-22 02:42:14,298 - root - INFO - Detected language: th, Confidence: 0.9994507431983948
+2024-10-22 02:42:14,336 - root - INFO - Successful translation: That's beautiful.
+2024-10-22 02:42:14,336 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:42:14] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:42:17,503 - root - INFO - Received request data: {'msg': 'สวย', 'target_lang': 'en'}
+2024-10-22 02:42:17,504 - root - INFO - Detected language: th, Confidence: 1.0000799894332886
+2024-10-22 02:42:17,547 - root - INFO - Successful translation: It's beautiful.
+2024-10-22 02:42:17,547 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:42:17] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:42:20,632 - root - INFO - Received request data: {'msg': 'จุ้บๆ', 'target_lang': 'en'}
+2024-10-22 02:42:20,633 - root - INFO - Detected language: th, Confidence: 0.9039556980133057
+2024-10-22 02:42:20,669 - root - INFO - Successful translation: I'm going to get a drink.
+2024-10-22 02:42:20,669 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:42:20] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:42:24,796 - root - INFO - Received request data: {'msg': 'มั่นใจทุกไม้โดนทุกไม้', 'target_lang': 'en'}
+2024-10-22 02:42:24,797 - root - INFO - Detected language: th, Confidence: 0.9849681854248047
+2024-10-22 02:42:24,840 - root - INFO - Successful translation: I'm sure every tree is hit every tree.
+2024-10-22 02:42:24,841 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:42:24] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:42:28,948 - root - INFO - Received request data: {'msg': 'ถ้าเค้ายังไม่ใส่แต้มอีดิวเลอร์มันก็จะวนวนไพ่ไปก่อน', 'target_lang': 'en'}
+2024-10-22 02:42:28,948 - root - INFO - Detected language: th, Confidence: 0.9997731447219849
+2024-10-22 02:42:29,036 - root - INFO - Successful translation: If he doesn't have an Edeler touch, it'll be a little bit of a mess.
+2024-10-22 02:42:29,036 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:42:29] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:42:31,562 - root - INFO - Received request data: {'msg': 'P', 'target_lang': 'en'}
+2024-10-22 02:42:31,562 - root - INFO - Detected language: en, Confidence: 0.9436699151992798
+2024-10-22 02:42:31,563 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:42:31] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:42:42,038 - root - INFO - Received request data: {'msg': 'มีใครไม่มาแจกไพ่อีกมั้ยคะพี่มาย เห็นมีคนใหม่มา', 'target_lang': 'en'}
+2024-10-22 02:42:42,039 - root - INFO - Detected language: th, Confidence: 1.0000510215759277
+2024-10-22 02:42:42,090 - root - INFO - Successful translation: Didn't anyone come to give it to you, brother?
+2024-10-22 02:42:42,090 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:42:42] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:42:45,432 - root - INFO - Received request data: {'msg': 'Blue 💙💙💙💙', 'target_lang': 'en'}
+2024-10-22 02:42:45,432 - root - INFO - Detected language: en, Confidence: 0.3135911226272583
+2024-10-22 02:42:45,433 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:42:45] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:42:49,563 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:42:49] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:42:51,268 - root - INFO - Received request data: {'msg': 'แดงเขียว', 'target_lang': 'en'}
+2024-10-22 02:42:51,269 - root - INFO - Detected language: th, Confidence: 1.0000109672546387
+2024-10-22 02:42:51,288 - root - INFO - Successful translation: Green.
+2024-10-22 02:42:51,288 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:42:51] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:43:04,331 - root - INFO - Received request data: {'msg': 'สวย', 'target_lang': 'en'}
+2024-10-22 02:43:04,331 - root - INFO - Detected language: th, Confidence: 1.0000799894332886
+2024-10-22 02:43:04,359 - root - INFO - Successful translation: It's beautiful.
+2024-10-22 02:43:04,359 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:43:04] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:43:08,285 - root - INFO - Received request data: {'msg': 'รักดาราสาวว', 'target_lang': 'en'}
+2024-10-22 02:43:08,285 - root - INFO - Detected language: th, Confidence: 1.0000778436660767
+2024-10-22 02:43:08,316 - root - INFO - Successful translation: I love the Savoy.
+2024-10-22 02:43:08,316 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:43:08] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:43:14,527 - root - INFO - Received request data: {'msg': 'เงิน🔵🔵', 'target_lang': 'en'}
+2024-10-22 02:43:14,527 - root - INFO - Detected language: th, Confidence: 0.9999862313270569
+2024-10-22 02:43:14,548 - root - INFO - Successful translation: The money.
+2024-10-22 02:43:14,549 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:43:14] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:43:19,842 - root - INFO - Received request data: {'msg': 'แดงโบไปจบๆ', 'target_lang': 'en'}
+2024-10-22 02:43:19,843 - root - INFO - Detected language: th, Confidence: 0.9780475497245789
+2024-10-22 02:43:19,872 - root - INFO - Successful translation: The gang's finished.
+2024-10-22 02:43:19,873 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:43:19] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:43:27,606 - root - INFO - Received request data: {'msg': 'แดงเขียว', 'target_lang': 'en'}
+2024-10-22 02:43:27,606 - root - INFO - Detected language: th, Confidence: 1.0000109672546387
+2024-10-22 02:43:27,625 - root - INFO - Successful translation: Green.
+2024-10-22 02:43:27,625 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:43:27] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:43:30,339 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:43:30] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:43:38,629 - root - INFO - Received request data: {'msg': 'สวยน', 'target_lang': 'en'}
+2024-10-22 02:43:38,629 - root - INFO - Detected language: th, Confidence: 1.0000799894332886
+2024-10-22 02:43:38,657 - root - INFO - Successful translation: That's great.
+2024-10-22 02:43:38,657 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:43:38] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:43:42,787 - root - INFO - Received request data: {'msg': 'สวนมาย', 'target_lang': 'en'}
+2024-10-22 02:43:42,787 - root - INFO - Detected language: th, Confidence: 1.0000799894332886
+2024-10-22 02:43:42,814 - root - INFO - Successful translation: The garden of May.
+2024-10-22 02:43:42,814 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:43:42] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:43:45,884 - root - INFO - Received request data: {'msg': 'สวย', 'target_lang': 'en'}
+2024-10-22 02:43:45,884 - root - INFO - Detected language: th, Confidence: 1.0000799894332886
+2024-10-22 02:43:45,924 - root - INFO - Successful translation: It's beautiful.
+2024-10-22 02:43:45,924 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:43:45] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:43:54,849 - root - INFO - Received request data: {'msg': 'แดง', 'target_lang': 'en'}
+2024-10-22 02:43:54,849 - root - INFO - Detected language: th, Confidence: 1.0000797510147095
+2024-10-22 02:43:54,881 - root - INFO - Successful translation: I'm not going to.
+2024-10-22 02:43:54,881 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:43:54] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:43:58,430 - root - INFO - Received request data: {'msg': 'Banker', 'target_lang': 'en'}
+2024-10-22 02:43:58,430 - root - INFO - Detected language: en, Confidence: 0.6422570943832397
+2024-10-22 02:43:58,431 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:43:58] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:44:08,288 - root - INFO - Received request data: {'msg': '💙💙💙💙💙', 'target_lang': 'en'}
+2024-10-22 02:44:08,288 - root - INFO - Detected language: en, Confidence: 0.1798863261938095
+2024-10-22 02:44:08,289 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:44:08] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:44:12,233 - root - INFO - Received request data: {'msg': 'ไปแดง', 'target_lang': 'en'}
+2024-10-22 02:44:12,234 - root - INFO - Detected language: th, Confidence: 1.0000704526901245
+2024-10-22 02:44:12,265 - root - INFO - Successful translation: Go to red.
+2024-10-22 02:44:12,265 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:44:12] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:44:21,693 - root - INFO - Received request data: {'msg': 'นั่นงัย', 'target_lang': 'en'}
+2024-10-22 02:44:21,693 - root - INFO - Detected language: th, Confidence: 0.999871015548706
+2024-10-22 02:44:21,725 - root - INFO - Successful translation: That's right.
+2024-10-22 02:44:21,725 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:44:21] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:44:26,878 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:44:26] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:44:27,325 - root - INFO - Received request data: {'msg': 'ไม่น่าตาม', 'target_lang': 'en'}
+2024-10-22 02:44:27,326 - root - INFO - Detected language: th, Confidence: 1.0000778436660767
+2024-10-22 02:44:27,360 - root - INFO - Successful translation: I shouldn't have followed.
+2024-10-22 02:44:27,360 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:44:27] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:44:33,097 - root - INFO - Received request data: {'msg': 'จั่วเหร้ยไร', 'target_lang': 'en'}
+2024-10-22 02:44:33,098 - root - INFO - Detected language: th, Confidence: 0.9972825050354004
+2024-10-22 02:44:33,123 - root - INFO - Successful translation: What a coin.
+2024-10-22 02:44:33,123 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:44:33] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:44:39,157 - root - INFO - Received request data: {'msg': 'แดงๆ', 'target_lang': 'en'}
+2024-10-22 02:44:39,157 - root - INFO - Detected language: th, Confidence: 0.9984888434410095
+2024-10-22 02:44:39,202 - root - INFO - Successful translation: It's cold.
+2024-10-22 02:44:39,203 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:44:39] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:44:42,628 - root - INFO - Received request data: {'msg': '🔵🔵🔵🔵🔵🔵🔵🔵🔵', 'target_lang': 'en'}
+2024-10-22 02:44:42,628 - root - INFO - Detected language: en, Confidence: 0.22666382789611816
+2024-10-22 02:44:42,629 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:44:42] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:44:47,830 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:44:47] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:44:48,201 - root - INFO - Received request data: {'msg': 'เงิน', 'target_lang': 'en'}
+2024-10-22 02:44:48,201 - root - INFO - Detected language: th, Confidence: 1.0000799894332886
+2024-10-22 02:44:48,221 - root - INFO - Successful translation: The money.
+2024-10-22 02:44:48,221 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:44:48] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:44:49,233 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:44:49] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:44:50,299 - root - INFO - Received request data: {'msg': 'อัดแดง', 'target_lang': 'en'}
+2024-10-22 02:44:50,299 - root - INFO - Detected language: th, Confidence: 1.0000782012939453
+2024-10-22 02:44:50,326 - root - INFO - Successful translation: The red one.
+2024-10-22 02:44:50,326 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:44:50] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:44:56,049 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:44:56] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:44:58,379 - root - INFO - Received request data: {'msg': 'แดงมาจะไปธุระ', 'target_lang': 'en'}
+2024-10-22 02:44:58,380 - root - INFO - Detected language: th, Confidence: 0.9997609853744507
+2024-10-22 02:44:58,417 - root - INFO - Successful translation: Don't you want to go to work?
+2024-10-22 02:44:58,417 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:44:58] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:45:04,115 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:45:04] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:45:07,464 - root - INFO - Received request data: {'msg': 'เงินตายอีก', 'target_lang': 'en'}
+2024-10-22 02:45:07,465 - root - INFO - Detected language: th, Confidence: 1.0000755786895752
+2024-10-22 02:45:07,496 - root - INFO - Successful translation: The money's gone.
+2024-10-22 02:45:07,496 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:45:07] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:45:11,333 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:45:11] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:45:14,782 - root - INFO - Received request data: {'msg': 'น้ำเงิน1', 'target_lang': 'en'}
+2024-10-22 02:45:14,782 - root - INFO - Detected language: th, Confidence: 0.9991753697395325
+2024-10-22 02:45:14,804 - root - INFO - Successful translation: Silver one.
+2024-10-22 02:45:14,804 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:45:14] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:45:17,875 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:45:17] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:45:22,037 - root - INFO - Received request data: {'msg': 'เงินนน', 'target_lang': 'en'}
+2024-10-22 02:45:22,037 - root - INFO - Detected language: th, Confidence: 1.000079870223999
+2024-10-22 02:45:22,060 - root - INFO - Successful translation: My money.
+2024-10-22 02:45:22,060 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:45:22] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:45:25,463 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:45:25] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:45:26,988 - root - INFO - Received request data: {'msg': 'น้องมายกินพี่ขนาดนี้', 'target_lang': 'en'}
+2024-10-22 02:45:26,989 - root - INFO - Detected language: th, Confidence: 1.000067114830017
+2024-10-22 02:45:27,018 - root - INFO - Successful translation: You ate me so much.
+2024-10-22 02:45:27,018 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:45:27] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:45:36,027 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:45:36] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:45:41,043 - root - INFO - Received request data: {'msg': 'เอ้า', 'target_lang': 'en'}
+2024-10-22 02:45:41,043 - root - INFO - Detected language: th, Confidence: 1.0000799894332886
+2024-10-22 02:45:41,061 - root - INFO - Successful translation: - What?
+2024-10-22 02:45:41,062 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:45:41] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:45:43,343 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:45:43] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:45:46,097 - root - INFO - Received request data: {'msg': 'สวย', 'target_lang': 'en'}
+2024-10-22 02:45:46,098 - root - INFO - Detected language: th, Confidence: 1.0000799894332886
+2024-10-22 02:45:46,125 - root - INFO - Successful translation: It's beautiful.
+2024-10-22 02:45:46,125 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:45:46] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:45:47,565 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:45:47] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:45:48,263 - root - INFO - Received request data: {'msg': 'งามจ้างาม', 'target_lang': 'en'}
+2024-10-22 02:45:48,263 - root - INFO - Detected language: th, Confidence: 1.0000760555267334
+2024-10-22 02:45:48,296 - root - INFO - Successful translation: It's a great job.
+2024-10-22 02:45:48,296 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:45:48] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:45:50,376 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:45:50] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:45:51,438 - root - INFO - Received request data: {'msg': 'มีลดด้วย', 'target_lang': 'en'}
+2024-10-22 02:45:51,438 - root - INFO - Detected language: th, Confidence: 1.0000261068344116
+2024-10-22 02:45:51,466 - root - INFO - Successful translation: There's a discount.
+2024-10-22 02:45:51,467 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:45:51] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:45:57,425 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:45:57] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:45:59,281 - root - INFO - Received request data: {'msg': '4/5แล้วเปิดตายเกิรไปมันควรชนะแล้ว', 'target_lang': 'en'}
+2024-10-22 02:45:59,282 - root - INFO - Detected language: th, Confidence: 0.9994332194328308
+2024-10-22 02:45:59,343 - root - INFO - Successful translation: Four-fifths, then open the dead grill. It should have won.
+2024-10-22 02:45:59,344 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:45:59] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:46:01,304 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:46:01] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:46:02,879 - root - INFO - Received request data: {'msg': 'ง', 'target_lang': 'en'}
+2024-10-22 02:46:02,879 - root - INFO - Detected language: th, Confidence: 1.0000799894332886
+2024-10-22 02:46:02,903 - root - INFO - Successful translation: I'm not.
+2024-10-22 02:46:02,903 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:46:02] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:46:06,093 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:46:06] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:46:09,828 - root - INFO - Received request data: {'msg': 'อีกนรก', 'target_lang': 'en'}
+2024-10-22 02:46:09,828 - root - INFO - Detected language: th, Confidence: 0.9996472001075745
+2024-10-22 02:46:09,852 - root - INFO - Successful translation: What the hell?
+2024-10-22 02:46:09,853 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:46:09] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:46:13,400 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:46:13] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:46:14,957 - root - INFO - Received request data: {'msg': 'ทำดีๆเราเป็นดารา', 'target_lang': 'en'}
+2024-10-22 02:46:14,957 - root - INFO - Detected language: th, Confidence: 1.0000706911087036
+2024-10-22 02:46:14,996 - root - INFO - Successful translation: We're all stars, you know.
+2024-10-22 02:46:14,996 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:46:14] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:46:14,997 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:46:14] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:46:16,071 - root - INFO - Received request data: {'msg': 'ร้อนไร', 'target_lang': 'en'}
+2024-10-22 02:46:16,071 - root - INFO - Detected language: th, Confidence: 0.9999265074729919
+2024-10-22 02:46:16,093 - root - INFO - Successful translation: How hot.
+2024-10-22 02:46:16,093 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:46:16] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:46:24,269 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:46:24] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:46:25,726 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:46:25] "OPTIONS /translate HTTP/1.0" 200 -
+2024-10-22 02:46:26,337 - root - INFO - Received request data: {'msg': 'สวยจ้า', 'target_lang': 'en'}
+2024-10-22 02:46:26,337 - root - INFO - Detected language: th, Confidence: 1.0000790357589722
+2024-10-22 02:46:26,364 - root - INFO - Successful translation: That's great.
+2024-10-22 02:46:26,364 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:46:26] "POST /translate HTTP/1.0" 200 -
+2024-10-22 02:46:29,923 - werkzeug - INFO - 172.18.0.2 - - [22/Oct/2024 02:46:29] "OPTIONS /translate HTTP/1.0" 200 -

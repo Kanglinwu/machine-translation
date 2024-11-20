@@ -2,8 +2,8 @@ services:
   server_1_cuda0:
     image: server:mg
     volumes:
-      - ./tmp/tmp1:/tmp
-      - ./logs/logs1:/app/logs
+      - ./tmp/tmp_01:/tmp
+      - ./logs/logs_01:/app/logs
     environment:
       det_conf: ${det_conf}
       GPU_ID: 0
@@ -29,8 +29,8 @@ services:
   server_2_cuda0:
     image: server:mg
     volumes:
-      - ./tmp/tmp1:/tmp
-      - ./logs/logs1:/app/logs
+      - ./tmp/tmp_02:/tmp
+      - ./logs/logs_02:/app/logs
     environment:
       det_conf: ${det_conf}
       GPU_ID: 0
@@ -56,8 +56,8 @@ services:
   server_3_cuda0:
     image: server:mg
     volumes:
-      - ./tmp/tmp1:/tmp
-      - ./logs/logs1:/app/logs
+      - ./tmp/tmp_03:/tmp
+      - ./logs/logs_03:/app/logs
     environment:
       det_conf: ${det_conf}
       GPU_ID: 0
@@ -83,8 +83,8 @@ services:
   server_4_cuda0:
     image: server:mg
     volumes:
-      - ./tmp/tmp1:/tmp
-      - ./logs/logs1:/app/logs
+      - ./tmp/tmp_04:/tmp
+      - ./logs/logs_04:/app/logs
     environment:
       det_conf: ${det_conf}
       GPU_ID: 0
@@ -110,8 +110,8 @@ services:
   server_5_cuda0:
     image: server:mg
     volumes:
-      - ./tmp/tmp1:/tmp
-      - ./logs/logs1:/app/logs
+      - ./tmp/tmp_05:/tmp
+      - ./logs/logs_05:/app/logs
     environment:
       det_conf: ${det_conf}
       GPU_ID: 0
@@ -137,8 +137,8 @@ services:
   server_1_cuda1:
     image: server:mg
     volumes:
-      - ./tmp/tmp1:/tmp
-      - ./logs/logs1:/app/logs
+      - ./tmp/tmp_11:/tmp
+      - ./logs/logs_11:/app/logs
     environment:
       det_conf: ${det_conf}
       GPU_ID: 1
@@ -164,8 +164,8 @@ services:
   server_2_cuda1:
     image: server:mg
     volumes:
-      - ./tmp/tmp1:/tmp
-      - ./logs/logs1:/app/logs
+      - ./tmp/tmp_12:/tmp
+      - ./logs/logs_12:/app/logs
     environment:
       det_conf: ${det_conf}
       GPU_ID: 1
@@ -191,8 +191,8 @@ services:
   server_3_cuda1:
     image: server:mg
     volumes:
-      - ./tmp/tmp1:/tmp
-      - ./logs/logs1:/app/logs
+      - ./tmp/tmp_13:/tmp
+      - ./logs/logs_13:/app/logs
     environment:
       det_conf: ${det_conf}
       GPU_ID: 1
@@ -218,8 +218,8 @@ services:
   server_4_cuda1:
     image: server:mg
     volumes:
-      - ./tmp/tmp1:/tmp
-      - ./logs/logs1:/app/logs
+      - ./tmp/tmp_14:/tmp
+      - ./logs/logs_14:/app/logs
     environment:
       det_conf: ${det_conf}
       GPU_ID: 1
@@ -245,8 +245,8 @@ services:
   server_5_cuda1:
     image: server:mg
     volumes:
-      - ./tmp/tmp1:/tmp
-      - ./logs/logs1:/app/logs
+      - ./tmp/tmp_15:/tmp
+      - ./logs/logs_15:/app/logs
     environment:
       det_conf: ${det_conf}
       GPU_ID: 1

@@ -45,4 +45,6 @@ RUN pip install --no-cache-dir \
 
 # 複製項目文件
 COPY api.py /app
-COPY ./models ./conf ./docs /app/
+COPY ./models /app/models
+COPY ./docs /app/docs
+COPY ./conf /app/conf

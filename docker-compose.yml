@@ -1,6 +1,6 @@
 services:
-  server_1_cuda0:
-    image: server:mg
+  translator_1_cuda0:
+    image: translator:mg
     volumes:
       - ./tmp/tmp_01:/tmp
       - ./logs/logs_01:/app/logs
@@ -26,8 +26,8 @@ services:
     networks:
       - loadbalance_net
 
-  server_2_cuda0:
-    image: server:mg
+  translator_2_cuda0:
+    image: translator:mg
     volumes:
       - ./tmp/tmp_02:/tmp
       - ./logs/logs_02:/app/logs
@@ -53,8 +53,8 @@ services:
     networks:
       - loadbalance_net
 
-  server_3_cuda0:
-    image: server:mg
+  translator_3_cuda0:
+    image: translator:mg
     volumes:
       - ./tmp/tmp_03:/tmp
       - ./logs/logs_03:/app/logs
@@ -80,8 +80,8 @@ services:
     networks:
       - loadbalance_net
 
-  server_4_cuda0:
-    image: server:mg
+  translator_4_cuda0:
+    image: translator:mg
     volumes:
       - ./tmp/tmp_04:/tmp
       - ./logs/logs_04:/app/logs
@@ -107,8 +107,8 @@ services:
     networks:
       - loadbalance_net
 
-  server_5_cuda0:
-    image: server:mg
+  translator_5_cuda0:
+    image: translator:mg
     volumes:
       - ./tmp/tmp_05:/tmp
       - ./logs/logs_05:/app/logs
@@ -134,8 +134,8 @@ services:
     networks:
       - loadbalance_net
 
-  # server_1_cuda1:
-  #   image: server:mg
+  # translator_1_cuda1:
+  #   image: translator:mg
   #   volumes:
   #     - ./tmp/tmp_11:/tmp
   #     - ./logs/logs_11:/app/logs
@@ -161,8 +161,8 @@ services:
   #   networks:
   #     - loadbalance_net
 
-  # server_2_cuda1:
-  #   image: server:mg
+  # translator_2_cuda1:
+  #   image: translator:mg
   #   volumes:
   #     - ./tmp/tmp_12:/tmp
   #     - ./logs/logs_12:/app/logs
@@ -188,8 +188,8 @@ services:
   #   networks:
   #     - loadbalance_net
 
-  # server_3_cuda1:
-  #   image: server:mg
+  # translator_3_cuda1:
+  #   image: translator:mg
   #   volumes:
   #     - ./tmp/tmp_13:/tmp
   #     - ./logs/logs_13:/app/logs
@@ -215,8 +215,8 @@ services:
   #   networks:
   #     - loadbalance_net
 
-  # server_4_cuda1:
-  #   image: server:mg
+  # translator_4_cuda1:
+  #   image: translator:mg
   #   volumes:
   #     - ./tmp/tmp_14:/tmp
   #     - ./logs/logs_14:/app/logs
@@ -242,8 +242,8 @@ services:
   #   networks:
   #     - loadbalance_net
 
-  # server_5_cuda1:
-  #   image: server:mg
+  # translator_5_cuda1:
+  #   image: translator:mg
   #   volumes:
   #     - ./tmp/tmp_15:/tmp
   #     - ./logs/logs_15:/app/logs
@@ -269,7 +269,7 @@ services:
   #   networks:
   #     - loadbalance_net
 
-  nginx_server:
+  nginx_translator:
     image: nginx_load_balancer:mg
     volumes:
       - ./tmp/tmp_nginx:/tmp

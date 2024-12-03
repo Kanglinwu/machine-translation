@@ -1,30 +1,35 @@
-# Base image with CUDA 12.1 and cuDNN 8, development environment, Ubuntu 22.04
-FROM nvcr.io/nvidia/pytorch:21.11-py3
+# 使用官方 PyTorch 映像作為基礎
+FROM pytorch/pytorch:2.1.0-cuda11.8-cudnn8-runtime
 
-# Install pip and upgrade setuptools
-RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
-    && python3 get-pip.py \
-    && rm get-pip.py \
-    && pip install --upgrade setuptools pip
-
-# Install other necessary Python libraries (these should be in your requirements.txt)
-RUN pip install uv
-COPY requirements.txt .
-RUN uv pip install -r requirements.txt
-
-# Optional: Remove any unnecessary files to reduce image size
-RUN rm -rf /var/lib/apt/lists/* /root/.cache
-
-# Set environment variables to prevent Python from writing pyc files
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-
+# 設置工作目錄
 WORKDIR /app
 
-# Copy the rest of the application code into the container
+# 安裝必要的系統依賴
+RUN apt-get update && apt-get install -y \
+    git \
+    python3-pip \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# 安裝 Python 依賴
+RUN pip3 install --no-cache-dir \
+    transformers \
+    torch \
+    sentencepiece \
+    protobuf \
+    huggingface_hub \
+    flask \
+    flask-cors \
+    gevent \
+    marshmallow \
+    pyyaml \
+    fasttext \
+    logging \
+    pathlib \
+    typing
+
+# 複製項目文件
 COPY api.py .
 COPY models/ .
 COPY conf/ .
 COPY docs/ .
-
-# Change the working directory to /app

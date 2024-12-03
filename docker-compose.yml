@@ -5,7 +5,6 @@ services:
       - ./tmp/tmp_01:/tmp
       - ./logs/logs_01:/app/logs
     environment:
-      det_conf: ${det_conf}
       GPU_ID: 0
     ipc: host
     ports:
@@ -32,7 +31,6 @@ services:
       - ./tmp/tmp_02:/tmp
       - ./logs/logs_02:/app/logs
     environment:
-      det_conf: ${det_conf}
       GPU_ID: 0
     ipc: host
     ports:
@@ -59,7 +57,6 @@ services:
       - ./tmp/tmp_03:/tmp
       - ./logs/logs_03:/app/logs
     environment:
-      det_conf: ${det_conf}
       GPU_ID: 0
     ipc: host
     ports:
@@ -86,7 +83,6 @@ services:
       - ./tmp/tmp_04:/tmp
       - ./logs/logs_04:/app/logs
     environment:
-      det_conf: ${det_conf}
       GPU_ID: 0
     ipc: host
     ports:
@@ -113,7 +109,6 @@ services:
       - ./tmp/tmp_05:/tmp
       - ./logs/logs_05:/app/logs
     environment:
-      det_conf: ${det_conf}
       GPU_ID: 0
     ipc: host
     ports:
@@ -140,7 +135,6 @@ services:
   #     - ./tmp/tmp_11:/tmp
   #     - ./logs/logs_11:/app/logs
   #   environment:
-  #     det_conf: ${det_conf}
   #     GPU_ID: 1
   #   ipc: host
   #   ports:
@@ -167,7 +161,6 @@ services:
   #     - ./tmp/tmp_12:/tmp
   #     - ./logs/logs_12:/app/logs
   #   environment:
-  #     det_conf: ${det_conf}
   #     GPU_ID: 1
   #   ipc: host
   #   ports:
@@ -194,7 +187,6 @@ services:
   #     - ./tmp/tmp_13:/tmp
   #     - ./logs/logs_13:/app/logs
   #   environment:
-  #     det_conf: ${det_conf}
   #     GPU_ID: 1
   #   ipc: host
   #   ports:
@@ -221,7 +213,6 @@ services:
   #     - ./tmp/tmp_14:/tmp
   #     - ./logs/logs_14:/app/logs
   #   environment:
-  #     det_conf: ${det_conf}
   #     GPU_ID: 1
   #   ipc: host
   #   ports:
@@ -248,7 +239,6 @@ services:
   #     - ./tmp/tmp_15:/tmp
   #     - ./logs/logs_15:/app/logs
   #   environment:
-  #     det_conf: ${det_conf}
   #     GPU_ID: 1
   #   ipc: host
   #   ports:

@@ -8,8 +8,9 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
     && pip install --upgrade setuptools pip
 
 # Install other necessary Python libraries (these should be in your requirements.txt)
+RUN pip install uv
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN uv pip install -r requirements.txt
 
 # Optional: Remove any unnecessary files to reduce image size
 RUN rm -rf /var/lib/apt/lists/* /root/.cache

@@ -2,6 +2,8 @@
 
 # 顯示使用方法
 usage() {
+    echo "安裝:"
+    echo "sudo apt install apache2-utils"
     echo "使用方法: $0 [-c 並發數] [-n 請求總數]"
     echo "例如: $0 -c 50 -n 1000"
     echo "選項:"

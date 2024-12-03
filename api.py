@@ -371,7 +371,6 @@ def translate():
                 tgt_lang=iso_639_to_flores_200[target_lang],
             )
             translated = translated[0]["translation_text"]  # type: ignore
-            print(translated)
 
             response_text["target_msg"] = translated
 

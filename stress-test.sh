@@ -37,14 +37,14 @@ if [ "$CONCURRENT" -gt "$REQUESTS" ]; then
 fi
 
 # 配置參數
-HOST="10.10.10.96:2486"
+HOST="10.10.10.95:2486"
 ENDPOINT="/translate"
 JSON_FILE="payload.json"
 RESULT_FILE="test_result.txt"
 
 # 創建測試用的 JSON 文件
 cat > "$JSON_FILE" << EOF
-{"msg": "Where are you", "target_lang": "zh"}
+{"msg": "Cô gái này đẹp quá!", "target_lang": "en"}
 EOF
 
 # 顯示測試開始信息

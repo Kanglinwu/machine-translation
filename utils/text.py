@@ -1,5 +1,7 @@
 import re
 import unicodedata
+from pathlib import Path
+from typing import Dict, Optional
 
 
 def normalize_text(text):
@@ -40,58 +42,71 @@ def normalize_text(text):
     return " ".join(normalized_text.lower().split())
 
 
-def remove_punctuations_symbols_emojis(text):
-    # Emoji pattern (targeting emojis)
-    emoji_pattern = re.compile(
-        "["
-        "\U0001f600-\U0001f64f"  # emoticons
-        "\U0001f300-\U0001f5ff"  # symbols & pictographs
-        "\U0001f680-\U0001f6ff"  # transport & map symbols
-        "\U0001f100-\U0001f1ff"  # flags (iOS)
-        "\U0001f200-\U0001f2ff"  # additional emojis
-        "\U00002702-\U000027b0"  # Dingbats and other symbols
-        "\U0001f780-\U0001f7ff"
-        "\U0001f900-\U0001f9ff"
-        "]+",
-        flags=re.UNICODE,
-    )
+def read_csv_to_dict(
+    file_path: Path,
+    key_column: int = 1,
+    value_column: int = 0,
+    skip_header: bool = True,
+) -> Optional[Dict[str, str]]:
+    """
+    從 CSV 檔案讀取數據並轉換為字典
 
-    segments = []  # To store text segments
-    emojis = []  # To store emojis and their positions
+    Args:
+        file_path (Path): CSV 檔案路徑
+        key_column (int, optional): 作為字典鍵的列索引. Defaults to 1.
+        value_column (int, optional): 作為字典值的列索引. Defaults to 0.
+        skip_header (bool, optional): 是否跳過第一行. Defaults to True.
 
-    last_end = 0  # Track the end of the last match to segment the text
+    Returns:
+        Optional[Dict[str, str]]: 轉換後的字典，讀取失敗時返回 None
+    """
+    try:
+        # 檢查文件是否存在且可讀
+        if not file_path.is_file():
+            logger.error(f"File not found: {file_path}")
+            return None
 
-    firstIndex = False
+        result_dict = {}
 
-    # Iterate over each emoji match
-    for match in emoji_pattern.finditer(text):
-        start, end = match.span()
+        with file_path.open(encoding="utf-8") as file:
+            reader = csv.reader(file)
 
-        if start == 0:
-            firstIndex = True
+            # 根據 skip_header 參數決定是否跳過標題列
+            if skip_header:
+                next(reader, None)
 
-        # Append text segment before the emoji
-        if last_end != start:
-            segments.append(text[last_end:start])
+            for row_num, row in enumerate(reader, 1):
+                # 檢查行是否有足夠的列
+                if len(row) < max(key_column, value_column) + 1:
+                    logger.warning(
+                        f"Skipping row {row_num} due to insufficient columns: {row}"
+                    )
+                    continue
 
-        # Store emoji info (position and emoji)
-        emojis.append(text[start:end])
+                # 處理可能的空值或異常值
+                key = str(row[key_column]).strip()
+                value = str(row[value_column]).strip()
 
-        # Update last_end to the end of the current emoji
-        last_end = end
+                if not key:
+                    logger.warning(f"Skipping row {row_num} due to empty key")
+                    continue
 
-    # Append any remaining text after the last emoji
-    if last_end < len(text):
-        segments.append(text[last_end:])
+                # 檢查是否有重複鍵
+                if key in result_dict:
+                    logger.warning(
+                        f"Duplicate key '{key}' found. Overwriting previous value."
+                    )
 
-    return segments, emojis, firstIndex
+                result_dict[key] = value
 
+        return result_dict
 
-# Example usage
-if __name__ == "__main__":
-    text = "😊😊😊😊😊😊😊😊 😊😊😊😊"
-    segments, emojis, firstIndex = remove_punctuations_symbols_emojis(text)
-
-    print("Text Segments:", segments)
-    print("Emojis Info:", emojis)
-    print("Is first: ", firstIndex)
+    except PermissionError:
+        logger.error(f"Permission denied when accessing file: {file_path}")
+        return None
+    except csv.Error as e:
+        logger.error(f"CSV parsing error: {e}")
+        return None
+    except Exception as e:
+        logger.error(f"Unexpected error reading CSV: {e}")
+        return None

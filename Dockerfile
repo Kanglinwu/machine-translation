@@ -18,8 +18,12 @@ RUN rm -rf /var/lib/apt/lists/* /root/.cache
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
+WORKDIR /app
+
 # Copy the rest of the application code into the container
-COPY . /app/
+COPY api.py .
+COPY models/ .
+COPY conf/ .
+COPY docs/ .
 
 # Change the working directory to /app
-WORKDIR /app

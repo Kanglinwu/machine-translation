@@ -1,7 +1,11 @@
-model_dir: "models"
+models_dir: "models"
 model_lid_name: "lid.217.bin"
 # model_lid_name: "lid.176.bin"
 model_mt_name: "facebook/nllb-200-distilled-600M"
-code_map_file: "docs/iso-639_to_flores-200.json"
+
+iso_639_to_flores_200_file: "docs/iso-639_to_flores-200.json"
+lang_to_flores_200_file: "docs/lang_to_flores-200.csv"
+flores_200_to_lang_file: "docs/flores-200_to_lang.json"
+
 default_languages: ["en", "ko", "th", "vi", "zh"]
 log_file: "logs/api.log"

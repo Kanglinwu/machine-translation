@@ -134,140 +134,140 @@ services:
     networks:
       - loadbalance_net
 
-  server_1_cuda1:
-    image: server:mg
-    volumes:
-      - ./tmp/tmp_11:/tmp
-      - ./logs/logs_11:/app/logs
-    environment:
-      det_conf: ${det_conf}
-      GPU_ID: 1
-    ipc: host
-    ports:
-      - "1011:5050"
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              device_ids: ['1']
-              capabilities: [gpu]
-    command: python api.py
-    logging:
-      driver: "local"
-      options:
-        max-size: "100m"
-        max-file: "14"
-    networks:
-      - loadbalance_net
+  # server_1_cuda1:
+  #   image: server:mg
+  #   volumes:
+  #     - ./tmp/tmp_11:/tmp
+  #     - ./logs/logs_11:/app/logs
+  #   environment:
+  #     det_conf: ${det_conf}
+  #     GPU_ID: 1
+  #   ipc: host
+  #   ports:
+  #     - "1011:5050"
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             device_ids: ['1']
+  #             capabilities: [gpu]
+  #   command: python api.py
+  #   logging:
+  #     driver: "local"
+  #     options:
+  #       max-size: "100m"
+  #       max-file: "14"
+  #   networks:
+  #     - loadbalance_net
 
-  server_2_cuda1:
-    image: server:mg
-    volumes:
-      - ./tmp/tmp_12:/tmp
-      - ./logs/logs_12:/app/logs
-    environment:
-      det_conf: ${det_conf}
-      GPU_ID: 1
-    ipc: host
-    ports:
-      - "1012:5050"
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              device_ids: ['1']
-              capabilities: [gpu]
-    command: python api.py
-    logging:
-      driver: "local"
-      options:
-        max-size: "100m"
-        max-file: "14"
-    networks:
-      - loadbalance_net
+  # server_2_cuda1:
+  #   image: server:mg
+  #   volumes:
+  #     - ./tmp/tmp_12:/tmp
+  #     - ./logs/logs_12:/app/logs
+  #   environment:
+  #     det_conf: ${det_conf}
+  #     GPU_ID: 1
+  #   ipc: host
+  #   ports:
+  #     - "1012:5050"
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             device_ids: ['1']
+  #             capabilities: [gpu]
+  #   command: python api.py
+  #   logging:
+  #     driver: "local"
+  #     options:
+  #       max-size: "100m"
+  #       max-file: "14"
+  #   networks:
+  #     - loadbalance_net
 
-  server_3_cuda1:
-    image: server:mg
-    volumes:
-      - ./tmp/tmp_13:/tmp
-      - ./logs/logs_13:/app/logs
-    environment:
-      det_conf: ${det_conf}
-      GPU_ID: 1
-    ipc: host
-    ports:
-      - "1013:5050"
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              device_ids: ['1']
-              capabilities: [gpu]
-    command: python api.py
-    logging:
-      driver: "local"
-      options:
-        max-size: "100m"
-        max-file: "14"
-    networks:
-      - loadbalance_net
+  # server_3_cuda1:
+  #   image: server:mg
+  #   volumes:
+  #     - ./tmp/tmp_13:/tmp
+  #     - ./logs/logs_13:/app/logs
+  #   environment:
+  #     det_conf: ${det_conf}
+  #     GPU_ID: 1
+  #   ipc: host
+  #   ports:
+  #     - "1013:5050"
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             device_ids: ['1']
+  #             capabilities: [gpu]
+  #   command: python api.py
+  #   logging:
+  #     driver: "local"
+  #     options:
+  #       max-size: "100m"
+  #       max-file: "14"
+  #   networks:
+  #     - loadbalance_net
 
-  server_4_cuda1:
-    image: server:mg
-    volumes:
-      - ./tmp/tmp_14:/tmp
-      - ./logs/logs_14:/app/logs
-    environment:
-      det_conf: ${det_conf}
-      GPU_ID: 1
-    ipc: host
-    ports:
-      - "1014:5050"
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              device_ids: ['1']
-              capabilities: [gpu]
-    command: python api.py
-    logging:
-      driver: "local"
-      options:
-        max-size: "100m"
-        max-file: "14"
-    networks:
-      - loadbalance_net
+  # server_4_cuda1:
+  #   image: server:mg
+  #   volumes:
+  #     - ./tmp/tmp_14:/tmp
+  #     - ./logs/logs_14:/app/logs
+  #   environment:
+  #     det_conf: ${det_conf}
+  #     GPU_ID: 1
+  #   ipc: host
+  #   ports:
+  #     - "1014:5050"
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             device_ids: ['1']
+  #             capabilities: [gpu]
+  #   command: python api.py
+  #   logging:
+  #     driver: "local"
+  #     options:
+  #       max-size: "100m"
+  #       max-file: "14"
+  #   networks:
+  #     - loadbalance_net
 
-  server_5_cuda1:
-    image: server:mg
-    volumes:
-      - ./tmp/tmp_15:/tmp
-      - ./logs/logs_15:/app/logs
-    environment:
-      det_conf: ${det_conf}
-      GPU_ID: 1
-    ipc: host
-    ports:
-      - "1015:5050"
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              device_ids: ['1']
-              capabilities: [gpu]
-    command: python api.py
-    logging:
-      driver: "local"
-      options:
-        max-size: "100m"
-        max-file: "14"
-    networks:
-      - loadbalance_net
+  # server_5_cuda1:
+  #   image: server:mg
+  #   volumes:
+  #     - ./tmp/tmp_15:/tmp
+  #     - ./logs/logs_15:/app/logs
+  #   environment:
+  #     det_conf: ${det_conf}
+  #     GPU_ID: 1
+  #   ipc: host
+  #   ports:
+  #     - "1015:5050"
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             device_ids: ['1']
+  #             capabilities: [gpu]
+  #   command: python api.py
+  #   logging:
+  #     driver: "local"
+  #     options:
+  #       max-size: "100m"
+  #       max-file: "14"
+  #   networks:
+  #     - loadbalance_net
 
   nginx_server:
     image: nginx_load_balancer:mg

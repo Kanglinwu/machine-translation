@@ -1,6 +1,5 @@
 models_dir: "models"
-model_lid_name: "lid.217.bin"
-# model_lid_name: "lid.176.bin"
+model_lid_name: "facebook/fasttext-language-identification"
 model_mt_name: "facebook/nllb-200-distilled-600M"
 
 iso_639_to_flores_200_file: "docs/iso-639_to_flores-200.json"

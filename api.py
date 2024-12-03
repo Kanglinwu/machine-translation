@@ -11,6 +11,7 @@ import torch
 import fasttext
 from gevent import pywsgi
 from flask_cors import cross_origin
+from huggingface_hub import hf_hub_download
 from flask import Flask, request, jsonify, Response
 from marshmallow import Schema, fields, ValidationError, validate
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
@@ -126,12 +127,13 @@ class ModelConfig:
 
         # 語言識別模型
         model_lid_name = self.cfg["model_lid_name"]
-        model_lid_file = models_dir / model_lid_name
+        model_lid_file = hf_hub_download(
+            model_lid_name, "model.bin", cache_dir=models_dir
+        )
         model_lid = fasttext.load_model(str(model_lid_file))
 
         # 翻譯模型
         model_mt_name = self.cfg["model_mt_name"]
-        device = self.get_device()
 
         model_mt = AutoModelForSeq2SeqLM.from_pretrained(
             model_mt_name, cache_dir=models_dir, torch_dtype=torch.bfloat16
@@ -140,6 +142,8 @@ class ModelConfig:
         tokenizer_mt = AutoTokenizer.from_pretrained(
             model_mt_name, cache_dir=models_dir, torch_dtype=torch.bfloat16
         )
+
+        device = self.get_device()
 
         translator = pipeline(
             "translation",

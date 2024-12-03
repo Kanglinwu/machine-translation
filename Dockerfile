@@ -48,3 +48,4 @@ COPY api.py /app
 COPY ./models /app/models
 COPY ./docs /app/docs
 COPY ./conf /app/conf
+COPY ./utils /app/utils

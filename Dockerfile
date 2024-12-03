@@ -44,7 +44,5 @@ RUN pip install --no-cache-dir \
     fasttext
 
 # 複製項目文件
-COPY api.py .
-COPY models/ .
-COPY conf/ .
-COPY docs/ .
+COPY api.py /app
+COPY ./models ./conf ./docs /app/

@@ -52,8 +52,6 @@ class ModelConfig:
             "models_dir",
             "model_lid_name",
             "model_mt_name",
-            "log_file",
-            "iso_639_to_flores_200_file",
         ]
         for key in required_keys:
             if key not in self.cfg:

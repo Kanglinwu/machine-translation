@@ -31,8 +31,7 @@ ENV PATH="/opt/venv/bin:$PATH"
 
 # 安裝 PyTorch 和其他依賴
 COPY requirements.txt /app
-RUN pip install uv
-RUN uv pip install -r requirements.txt
+RUN pip install -r requirements.txt
 
 # 複製項目文件
 COPY api.py /app

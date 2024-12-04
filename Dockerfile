@@ -30,18 +30,8 @@ RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
 # 安裝 PyTorch 和其他依賴
-RUN pip install --no-cache-dir \
-    torch \
-    transformers \
-    sentencepiece \
-    protobuf \
-    huggingface_hub \
-    flask \
-    flask-cors \
-    gevent \
-    marshmallow \
-    pyyaml \
-    fasttext
+RUN pip insyall uv
+RUN uv pip install -r requirements.txt
 
 # 複製項目文件
 COPY api.py /app

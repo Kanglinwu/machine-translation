@@ -13,7 +13,7 @@ from gevent import pywsgi
 from flask_cors import cross_origin
 from huggingface_hub import hf_hub_download
 from flask import Flask, request, jsonify, Response
-from marshmallow import Schema, fields, ValidationError, validate
+
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 
 from utils.text import normalize_text
@@ -216,40 +216,40 @@ def initialize_app(app):
     model_mt_name = model_config.cfg["model_mt_name"]
 
 
-class TranslationRequestSchema(Schema):
-    """
-    定義翻譯請求的校驗模式
-    """
+# class TranslationRequestSchema(Schema):
+#     """
+#     定義翻譯請求的校驗模式
+#     """
 
-    @staticmethod
-    def validate_not_empty_after_strip(value):
-        """
-        驗證字串在 strip() 後不為空
+#     @staticmethod
+#     def validate_not_empty_after_strip(value):
+#         """
+#         驗證字串在 strip() 後不為空
 
-        Args:
-            value (str): 待驗證的字串
+#         Args:
+#             value (str): 待驗證的字串
 
-        Raises:
-            ValidationError: 如果字串在 strip() 後為空
-        """
-        if not value or not str(value).strip():
-            raise ValidationError(
-                "Target language cannot be an empty string after stripping whitespace."
-            )
+#         Raises:
+#             ValidationError: 如果字串在 strip() 後為空
+#         """
+#         if not value or not str(value).strip():
+#             raise ValidationError(
+#                 "Target language cannot be an empty string after stripping whitespace."
+#             )
 
-    msg = fields.String(
-        required=True,
-        validate=[
-            validate.Length(
-                min=1,
-                max=512,
-                error="Text length must be between 1 and 512 characters",
-            )
-        ],
-    )
-    target_lang = fields.String(
-        required=True, validate=[validate_not_empty_after_strip]
-    )
+#     msg = fields.String(
+#         required=True,
+#         validate=[
+#             validate.Length(
+#                 min=1,
+#                 max=512,
+#                 error="Text length must be between 1 and 512 characters",
+#             )
+#         ],
+#     )
+#     target_lang = fields.String(
+#         required=True, validate=[validate_not_empty_after_strip]
+#     )
 
 
 def identify_language(text: str, threshold: float = 0.0) -> Tuple[str, str, float]:
@@ -263,10 +263,6 @@ def identify_language(text: str, threshold: float = 0.0) -> Tuple[str, str, floa
     Returns:
         Tuple[str, str, float]: 識別出的語言代碼、語言和confidence分數
     """
-    # 檢查輸入文本是否為空
-    if not text or len(text.strip()) == 0:
-        raise ValueError("Input text cannot be empty")
-
     # 預測前 5 種可能的語言
     predicted_labels, confidence_scores = model_lid.predict(text, k=5)
 
@@ -309,15 +305,23 @@ def validate_data(data: Dict) -> Tuple[str, str]:
     Returns:
         bool: 是否通過驗證
     """
-    if "raw_text" not in data or "target_language" not in data:
-        raise Exception("Invalid input data")
+    if "raw_text" not in data:
+        raise Exception("raw_text is missing")
 
-    else:
-        raw_text = data["raw_text"].strip()
-        target_language = data["target_language"].strip()
+    if "target_language" not in data:
+        raise Exception("target_language is missing")
 
-        if not raw_text or not target_language not in default_languages:
-            raise Exception("Invalid input data")
+    raw_text = data["raw_text"].strip()
+    target_language = data["target_language"].strip()
+
+    if not raw_text:
+        raise Exception("raw_text is empty")
+
+    if not target_language:
+        raise Exception("target_language is empty")
+
+    if target_language not in default_languages:
+        raise Exception("target_language does not belong to default_languages")
 
     return raw_text, target_language
 

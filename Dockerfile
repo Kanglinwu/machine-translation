@@ -30,7 +30,8 @@ RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
 # 安裝 PyTorch 和其他依賴
-RUN pip insyall uv
+COPY requirements.txt /app
+RUN pip install uv
 RUN uv pip install -r requirements.txt
 
 # 複製項目文件

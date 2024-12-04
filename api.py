@@ -67,7 +67,9 @@ class ModelConfig:
             "model_lid_name",
             "model_mt_name",
             "log_file",
-            "iso_639_to_flores_200_file",
+            "lang_to_flores_200_file",
+            "flores_200_to_lang_file",
+            "default_languages",
         ]
         for key in required_keys:
             if key not in self.cfg:
@@ -165,18 +167,13 @@ class ModelConfig:
         載入語言對映表
 
         Returns:
-            Tuple: (iso_639_to_flores_200, flores_200_to_iso_639)
+            Tuple: (lang_to_flores_200, flores_200_to_lang)
         """
-        iso_639_to_flores_200_file = (
-            self.project_root / self.cfg["iso_639_to_flores_200_file"]
+        lang_to_flores_200_file = (
+            self.project_root / self.cfg["lang_to_flores_200_file"]
         )
-
-        with Path(iso_639_to_flores_200_file).open() as file:
-            iso_639_to_flores_200 = json.load(file)
-
-        flores_200_to_iso_639 = {
-            value: key for key, value in iso_639_to_flores_200.items()
-        }
+        with Path(lang_to_flores_200_file).open() as file:
+            lang_to_flores_200 = json.load(file)
 
         flores_200_to_lang_file = (
             self.project_root / self.cfg["flores_200_to_lang_file"]
@@ -184,7 +181,7 @@ class ModelConfig:
         with Path(flores_200_to_lang_file).open() as file:
             flores_200_to_lang = json.load(file)
 
-        return iso_639_to_flores_200, flores_200_to_iso_639, flores_200_to_lang
+        return lang_to_flores_200, flores_200_to_lang
 
 
 def initialize_app(app):
@@ -206,20 +203,17 @@ def initialize_app(app):
     model_lid, translator = model_config.load_translation_models()
 
     # 載入語言對映
-    global iso_639_to_flores_200, flores_200_to_iso_639, flores_200_to_lang
-    iso_639_to_flores_200, flores_200_to_iso_639, flores_200_to_lang = (
-        model_config.load_language_mappings()
-    )
+    global lang_to_flores_200, flores_200_to_lang
+    lang_to_flores_200, flores_200_to_lang = model_config.load_language_mappings()
 
     # 設定預設語言列表
     global default_languages
     default_languages = model_config.cfg.get("default_languages", [])
 
     # 生成模型名稱
-    global model_name
-    model_name = (
-        f"{model_config.cfg['model_lid_name']}+{model_config.cfg['model_mt_name']}"
-    )
+    global model_lid_name, model_mt_name
+    model_lid_name = model_config.cfg["model_lid_name"]
+    model_mt_name = model_config.cfg["model_mt_name"]
 
 
 class TranslationRequestSchema(Schema):
@@ -248,8 +242,8 @@ class TranslationRequestSchema(Schema):
         validate=[
             validate.Length(
                 min=1,
-                max=280,
-                error="Text length must be between 1 and 280 characters",
+                max=512,
+                error="Text length must be between 1 and 512 characters",
             )
         ],
     )
@@ -258,7 +252,7 @@ class TranslationRequestSchema(Schema):
     )
 
 
-def identify_language(text: str, threshold: float = 0.0) -> Tuple[str, float]:
+def identify_language(text: str, threshold: float = 0.0) -> Tuple[str, str, float]:
     """
     識別輸入文本的語言
 
@@ -267,41 +261,65 @@ def identify_language(text: str, threshold: float = 0.0) -> Tuple[str, float]:
         threshold (float, optional): 語言confidence的最小閾值. Defaults to 0.7.
 
     Returns:
-        Tuple[str, float]: 識別出的語言代碼和confidence分數
+        Tuple[str, str, float]: 識別出的語言代碼、語言和confidence分數
     """
     # 檢查輸入文本是否為空
     if not text or len(text.strip()) == 0:
         raise ValueError("Input text cannot be empty")
 
     # 預測前 5 種可能的語言
-    predicted_source_languages, confidence_scores = model_lid.predict(text, k=5)
+    predicted_labels, confidence_scores = model_lid.predict(text, k=5)
 
     # 移除 __label__ 前綴
-    predicted_source_languages = [
-        lang.replace("__label__", "") for lang in predicted_source_languages
-    ]
+    predicted_codes = [label.replace("__label__", "") for label in predicted_labels]
+    predicted_languages = [flores_200_to_lang[code] for code in predicted_codes]
 
     # 日誌記錄預測結果（可選）
-    logger.debug(f"Predicted language: {predicted_source_languages}")
+    logger.debug(f"Predicted codes: {predicted_codes}")
+    logger.debug(f"Predicted languages: {predicted_languages}")
     logger.debug(f"Confidence scores: {confidence_scores}")
 
     # 優先處理預設語言且confidence夠高的情況
-    for i, lang in enumerate(predicted_source_languages):
+    for i, lang in enumerate(predicted_languages):
         if lang in default_languages and confidence_scores[i] >= threshold:
-            return lang, confidence_scores[i]
-
-    # 如果沒有預設語言滿足閾值，返回第一個預測結果
-    predicted_source_language = predicted_source_languages[0]
-    confidence_score = confidence_scores[0]
+            return predicted_codes[i], lang, confidence_scores[i]
+    else:
+        # 如果沒有預設語言滿足閾值，返回第一個預測結果
+        predicted_code = predicted_codes[0]
+        predicted_language = predicted_languages[0]
+        confidence_score = confidence_scores[0]
 
     # 額外的安全檢查：如果confidence太低，可以拋出警告或返回特殊值
     if confidence_score < threshold:
         logger.warning(
-            f"Low confidence language detection: {predicted_source_language} "
+            f"Low confidence language detection: {predicted_language} "
             f"(score: {confidence_score})"
         )
 
-    return predicted_source_language, confidence_score
+    return predicted_code, predicted_language, confidence_score
+
+
+def validate_data(data: Dict) -> Tuple[str, str]:
+    """
+    驗證輸入數據是否符合預期
+
+    Args:
+        data (Dict): 輸入數據
+
+    Returns:
+        bool: 是否通過驗證
+    """
+    if "raw_text" not in data or "target_language" not in data:
+        raise Exception("Invalid input data")
+
+    else:
+        raw_text = data["raw_text"].strip()
+        target_language = data["target_language"].strip()
+
+        if not raw_text or not target_language not in default_languages:
+            raise Exception("Invalid input data")
+
+    return raw_text, target_language
 
 
 @app.route("/translate", methods=["POST"])
@@ -315,77 +333,78 @@ def translate():
     Returns:
         JSON 響應，包含翻譯結果或錯誤信息
     """
-    # 使用模式驗證輸入
-    schema = TranslationRequestSchema()
-    try:
-        data = schema.load(request.get_json())
-    except ValidationError as err:
-        logger.error(f"Input validation error: {err.messages}")
-        return jsonify({"error": "Invalid input", "details": err.messages}), 400
 
-    # 提取並規範化輸入
-    raw_msg = data["msg"]  # type: ignore
-    target_lang = data["target_lang"]  # type: ignore
+    # 驗證輸入
+    try:
+        data = request.get_json()
+        raw_text, target_language = validate_data(data)
+        target_code = lang_to_flores_200[target_language]
+    except Exception as e:
+        logger.error(f"Input validation error: {e}")
+        return jsonify({"error": "Invalid input", "details": f"{e}"}), 400
 
     # 日誌追蹤
     request_id = str(uuid.uuid4())
     logger.info(f"[{request_id}] Received translation request")
-    logger.info(f"[{request_id}] Target language: {target_lang}")
+    logger.info(f"[{request_id}] Raw text: {raw_text}")
+    logger.info(f"[{request_id}] Target language: {target_language}")
 
     try:
         # 文本規範化
-        normalized_msgs = normalize_text(raw_msg)
-        if not normalized_msgs:
+        normalized_text = normalize_text(raw_text)
+        if not normalized_text:
             raise ValueError("Normalized text is empty")
 
-        logger.info(f"[{request_id}] Normalized text: {normalized_msgs}")
+        logger.info(f"[{request_id}] Normalized text: {normalized_text}")
 
         # 語言偵測
         try:
-            predicted_source_language, confidence_score = identify_language(
-                normalized_msgs,
+            predicted_code, predicted_language, confidence_lid = identify_language(
+                normalized_text,
                 threshold=0.0,  # 可調整的信心閾值
             )
-            predicted_source_language = flores_200_to_iso_639[predicted_source_language]
-        except ValueError as lang_error:
-            logger.warning(f"[{request_id}] Language detection failed: {lang_error}")
-            predicted_source_language = "en"  # 預設語言
-            confidence_score = 0.0
+        except Exception as lid_error:
+            logger.warning(f"[{request_id}] Language detection failed: {lid_error}")
+            predicted_language = "English"  # 預設語言
+            predicted_code = lang_to_flores_200[predicted_language]
+            confidence_lid = 0.0
 
         # 構建響應基礎結構
-        response_text = {
+        response = {
             "request_id": request_id,
-            "source_msg": raw_msg,
-            "source_lang": predicted_source_language,
-            "target_lang": target_lang,
-            "confidence": confidence_score,
-            "is_trans": True,
-            "model": model_name,
+            "raw_text": raw_text,
+            "normalized_text": normalized_text,
+            "translated_text": "",
+            "predicted_language": predicted_language,
+            "target_language": target_language,
+            "confidence_lid": confidence_lid,
+            "model_lid": model_lid_name,
+            "model_mt": model_mt_name,
         }
 
         # 執行翻譯
         try:
             translated = translator(
-                normalized_msgs,
-                src_lang=predicted_source_language,
-                tgt_lang=iso_639_to_flores_200[target_lang],
+                normalized_text,
+                src_lang=predicted_code,
+                tgt_lang=target_code,
             )
-            translated = translated[0]["translation_text"]  # type: ignore
+            translated_text = translated[0]["translation_text"]  # type: ignore
 
-            response_text["target_msg"] = translated
+            response["translated_text"] = translated_text
 
             logger.info(f"[{request_id}] Translation successful")
-            logger.debug(f"[{request_id}] Translated text: {translated}")
+            logger.debug(f"[{request_id}] Translated text: {translated_text}")
 
             return Response(
-                json.dumps(response_text, ensure_ascii=False),
+                json.dumps(response, ensure_ascii=False),
                 content_type="application/json; charset=utf-8",
             )
 
-        except Exception as translation_error:
-            logger.error(f"[{request_id}] Translation error: {translation_error}")
+        except Exception as mt_error:
+            logger.error(f"[{request_id}] Translation error: {mt_error}")
             return jsonify(
-                {"error": "Translation failed", "details": str(translation_error)}
+                {"error": "Translation failed", "details": str(mt_error)}
             ), 500
 
     except Exception as e:

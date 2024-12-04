@@ -1,5 +1,4 @@
 import sys
-import csv
 import json
 from pathlib import Path
 from typing import Tuple
@@ -7,31 +6,10 @@ from typing import Tuple
 import yaml
 import torch
 import fasttext
+from huggingface_hub import hf_hub_download
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 
 from utils.text import normalize_text
-
-
-def read_csv_to_dict(file_path: Path):
-    try:
-        with file_path.open(encoding="utf-8") as file:
-            reader = csv.reader(file)
-            next(reader)
-            result_dict = {}
-            for row in reader:
-                if len(row) >= 2:
-                    key = row[0]
-                    value = row[1]
-                    result_dict[key] = value
-                else:
-                    print(f"Skipping row due to insufficient columns: {row}")
-            return result_dict
-    except FileNotFoundError:
-        print(f"Error: File not found at path: {file_path}")
-        return None
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        return None
 
 
 def translate(text: str, source_language: str = "en", target_language: str = "en"):
@@ -41,25 +19,6 @@ def translate(text: str, source_language: str = "en", target_language: str = "en
         tgt_lang=target_language,
     )
     return translated
-
-
-def identify_language(text: str) -> Tuple[str, float]:
-    predicted_source_languages, confidence_scores = model_lid.predict(text, k=5)
-    print(predicted_source_languages, confidence_scores)
-    predicted_source_languages = [
-        lang.replace("__label__", "") for lang in predicted_source_languages
-    ]
-
-    for i, lang in enumerate(predicted_source_languages):
-        if lang in DEFAULT_LANGUAGES:
-            confidence_score = confidence_scores[i]
-            predicted_source_language = lang
-            break
-    else:
-        predicted_source_language = predicted_source_languages[0]
-        confidence_score = confidence_scores[0]
-
-    return predicted_source_language, confidence_score
 
 
 project_root = Path(__file__).parent.parent.resolve()
@@ -72,72 +31,86 @@ model_lid_name = cfg["model_lid_name"]
 model_mt_name = cfg["model_mt_name"]
 default_languages = cfg["default_languages"]
 
-iso_639_to_flores_200_file = Path(project_root / cfg["iso_639_to_flores_200_file"])
-with Path(iso_639_to_flores_200_file).open() as file:
-    iso_639_to_flores_200 = json.load(file)
-
-flores_200_to_iso_639 = {value: key for key, value in iso_639_to_flores_200.items()}
-
-flores_200_codes = set()
-for iso_639_code in iso_639_to_flores_200:
-    if iso_639_to_flores_200[iso_639_code] not in flores_200_codes:
-        flores_200_codes.add(iso_639_to_flores_200[iso_639_code])
-    else:
-        print(f"Duplicate code: {iso_639_code}, {iso_639_to_flores_200[iso_639_code]}")
-
 lang_to_flores_200_file = Path(project_root / cfg["lang_to_flores_200_file"])
-lang_to_flores_200 = read_csv_to_dict(lang_to_flores_200_file)
-flores_200_to_lang = {value: key for key, value in lang_to_flores_200.items()}
+with Path(lang_to_flores_200_file).open() as file:
+    lang_to_flores_200 = json.load(file)
 
 flores_200_to_lang_file = Path(project_root / cfg["flores_200_to_lang_file"])
-with Path(flores_200_to_lang_file).open("w") as file:
-    json.dump(flores_200_to_lang, file, indent=4, ensure_ascii=False)
-
-exit()
-
-
-DEFAULT_LANGUAGES = ["en", "ko", "th", "vi", "zh"]
+with Path(flores_200_to_lang_file).open() as file:
+    flores_200_to_lang = json.load(file)
 
 if sys.platform.startswith("darwin"):
-    DEVICE = torch.device("mps" if torch.cuda.is_available() else "cpu")
+    device = torch.device("mps" if torch.cuda.is_available() else "cpu")
 elif sys.platform.startswith("linux"):
-    DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 else:
-    DEVICE = torch.device("cpu")
+    device = torch.device("cpu")
 
+# 語言識別模型
+model_lid_name = cfg["model_lid_name"]
+model_lid_file = hf_hub_download(model_lid_name, "model.bin", cache_dir=models_dir)
+model_lid = fasttext.load_model(str(model_lid_file))
 
-model_lid = fasttext.load_model(str(MODELS_DIR / MODEL_LID_NAME))
+# 翻譯模型
+model_mt_name = cfg["model_mt_name"]
 model_mt = AutoModelForSeq2SeqLM.from_pretrained(
-    MODEL_MT_NAME, cache_dir=MODELS_DIR, torch_dtype=torch.bfloat16
+    model_mt_name, cache_dir=models_dir, torch_dtype=torch.bfloat16
 )
 tokenizer_mt = AutoTokenizer.from_pretrained(
-    MODEL_MT_NAME, cache_dir=MODELS_DIR, torch_dtype=torch.bfloat16
+    model_mt_name, cache_dir=models_dir, torch_dtype=torch.bfloat16
 )
+
 translator = pipeline(
     "translation",
     model=model_mt,
     tokenizer=tokenizer_mt,
     max_length=512,
-    device=DEVICE,
+    device=device,
 )
 
+# 設置 CUDA 優化
+torch.backends.cuda.enable_flash_sdp = True
+torch.backends.cuda.enable_mem_efficient_sdp = True
+torch.backends.cuda.enable_math_sdp = False
 
 if __name__ == "__main__":
+    threshold = 0.0
+
     raw_text = "Cô gái này đẹp quá!"
     # raw_text = "Cậu bé này đẹp trai quá!"
 
-    # target_language = "en"
-    # target_language = CODE_MAP[target_language]
+    target_language = "English"
+    target_code = lang_to_flores_200[target_language]
 
-    # normalized_text = normalize_text(raw_text)
+    normalized_text = normalize_text(raw_text)
 
-    # predicted_source_language, confidence_score = identify_language(normalized_text)
+    print(f"Input: {raw_text}")
+    print(f"Normalized: {normalized_text}")
 
-    # translated = translate(normalized_text, predicted_source_language, target_language)
+    predicted_labels, confidence_scores = model_lid.predict(normalized_text, k=5)
+
+    predicted_codes = [label.replace("__label__", "") for label in predicted_labels]
+    predicted_languages = [flores_200_to_lang[code] for code in predicted_codes]
+
+    for i, lang in enumerate(predicted_languages):
+        if lang in default_languages and confidence_scores[i] >= threshold:
+            predicted_code = predicted_codes[i]
+            predicted_language = lang
+            confidence_score = confidence_scores[i]
+            break
+    else:
+        predicted_code = predicted_codes[0]
+        predicted_language = predicted_languages[0]
+        confidence_score = confidence_scores[0]
+
+    print(f"Predicted: {predicted_language} ({predicted_code})")
+    print(f"Confidence: {confidence_score}")
+
+    translated_text = translate(normalized_text, predicted_code, target_code)
     # print(type(translated))
 
     # print(normalized_text)
 
     # print(predicted_source_language, confidence_score)
 
-    # print(translated)
+    print(translated_text)

@@ -321,7 +321,7 @@ def translate():
         "request_id": request_id,
         "raw_text": raw_text,
         "translated_text": "",
-        "predicted_language": "",
+        "predicted_languages": [],
         "target_language": target_language,
         "model_lid": model_lid_name,
         "model_mt": model_mt_name,

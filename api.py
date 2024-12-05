@@ -13,10 +13,9 @@ from gevent import pywsgi
 from flask_cors import cross_origin
 from huggingface_hub import hf_hub_download
 from flask import Flask, request, jsonify, Response
-
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 
-from utils.text import normalize_text
+from utils.text import split_string_by_emoji, normalize_text
 
 
 app = Flask(__name__)
@@ -216,42 +215,6 @@ def initialize_app(app):
     model_mt_name = model_config.cfg["model_mt_name"]
 
 
-# class TranslationRequestSchema(Schema):
-#     """
-#     定義翻譯請求的校驗模式
-#     """
-
-#     @staticmethod
-#     def validate_not_empty_after_strip(value):
-#         """
-#         驗證字串在 strip() 後不為空
-
-#         Args:
-#             value (str): 待驗證的字串
-
-#         Raises:
-#             ValidationError: 如果字串在 strip() 後為空
-#         """
-#         if not value or not str(value).strip():
-#             raise ValidationError(
-#                 "Target language cannot be an empty string after stripping whitespace."
-#             )
-
-#     msg = fields.String(
-#         required=True,
-#         validate=[
-#             validate.Length(
-#                 min=1,
-#                 max=512,
-#                 error="Text length must be between 1 and 512 characters",
-#             )
-#         ],
-#     )
-#     target_lang = fields.String(
-#         required=True, validate=[validate_not_empty_after_strip]
-#     )
-
-
 def identify_language(text: str, threshold: float = 0.0) -> Tuple[str, str, float]:
     """
     識別輸入文本的語言
@@ -349,73 +312,73 @@ def translate():
 
     # 日誌追蹤
     request_id = str(uuid.uuid4())
-    logger.info(f"[{request_id}] Received translation request")
     logger.info(f"[{request_id}] Raw text: {raw_text}")
     logger.info(f"[{request_id}] Target language: {target_language}")
 
+    response = {
+        "request_id": request_id,
+        "raw_text": raw_text,
+        "translated_text": "",
+        "predicted_language": "",
+        "target_language": target_language,
+        "model_lid": model_lid_name,
+        "model_mt": model_mt_name,
+    }
+
     try:
-        # 文本規範化
-        normalized_text = normalize_text(raw_text)
-        if not normalized_text:
-            raise ValueError("Normalized text is empty")
+        # 分割輸入字串
+        split_strings, is_emoji = split_string_by_emoji(raw_text)
 
-        logger.info(f"[{request_id}] Normalized text: {normalized_text}")
+        translated_text = []
+        predicted_languages = set()
+        confidence_scores = []
+        for i, split_string in enumerate(split_strings):
+            normalized_string = normalize_text(split_string)
+            if not normalized_string:
+                continue
 
-        # 語言偵測
-        try:
-            predicted_code, predicted_language, confidence_lid = identify_language(
-                normalized_text,
-                threshold=0.0,  # 可調整的信心閾值
-            )
-        except Exception as lid_error:
-            logger.warning(f"[{request_id}] Language detection failed: {lid_error}")
-            predicted_language = "English"  # 預設語言
-            predicted_code = lang_to_flores_200[predicted_language]
-            confidence_lid = 0.0
+            if not is_emoji[i]:
+                try:
+                    predicted_code, predicted_language, confidence_score = (
+                        identify_language(
+                            normalized_string,
+                            threshold=0.0,  # 可調整的信心閾值
+                        )
+                    )
+                    predicted_languages.add(predicted_language)
+                    confidence_scores.append(confidence_score)
+                except Exception as e:
+                    logger.error(f"[{request_id}] LID Failed: {e}")
+                    return jsonify({"error": "LID Failed", "details": str(e)}), 500
 
-        # 構建響應基礎結構
-        response = {
-            "request_id": request_id,
-            "raw_text": raw_text,
-            "normalized_text": normalized_text,
-            "translated_text": "",
-            "predicted_language": predicted_language,
-            "target_language": target_language,
-            "confidence_lid": confidence_lid,
-            "model_lid": model_lid_name,
-            "model_mt": model_mt_name,
-        }
+                try:
+                    translated = translator(
+                        normalized_string,
+                        src_lang=predicted_code,
+                        tgt_lang=target_code,
+                    )
+                    translated_text.append(translated[0]["translation_text"])  # type: ignore
+                except Exception as e:
+                    logger.error(f"[{request_id}] MT Failed: {e}")
+                    return jsonify({"error": "MT Failed", "details": str(e)}), 500
+            else:
+                translated_text.append(normalized_string)
 
-        # 執行翻譯
-        try:
-            translated = translator(
-                normalized_text,
-                src_lang=predicted_code,
-                tgt_lang=target_code,
-            )
-            translated_text = translated[0]["translation_text"]  # type: ignore
+        response["predicted_languages"] = list(predicted_languages)
+        response["translated_text"] = " ".join(translated_text)
 
-            response["translated_text"] = translated_text
+        logger.debug(f"[{request_id}] Predicted Languages: {list(predicted_languages)}")
+        logger.debug(f"[{request_id}] Confidence Scores: {confidence_scores}")
+        logger.debug(f"[{request_id}] Translated Text: {translated_text}")
 
-            logger.info(f"[{request_id}] Translation successful")
-            logger.debug(f"[{request_id}] Translated text: {translated_text}")
-
-            return Response(
-                json.dumps(response, ensure_ascii=False),
-                content_type="application/json; charset=utf-8",
-            )
-
-        except Exception as mt_error:
-            logger.error(f"[{request_id}] Translation error: {mt_error}")
-            return jsonify(
-                {"error": "Translation failed", "details": str(mt_error)}
-            ), 500
+        return Response(
+            json.dumps(response, ensure_ascii=False),
+            content_type="application/json; charset=utf-8",
+        )
 
     except Exception as e:
-        logger.error(f"[{request_id}] Unexpected error: {e}")
-        return jsonify(
-            {"error": "An unexpected error occurred", "details": str(e)}
-        ), 500
+        logger.error(f"[{request_id}] Unexpected Error: {e}")
+        return jsonify({"error": "Unexpected Error", "details": str(e)}), 500
 
 
 if __name__ == "__main__":

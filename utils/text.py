@@ -60,11 +60,11 @@ def split_string_by_emoji(text: str) -> tuple:
 
 
 def normalize_text(text: str) -> str:
-    return " ".join(text.lower().split())
+    return " ".join(text.split()).lower()
 
 
 if __name__ == "__main__":
-    test_string = " Cô gái này đẹp quá! ❤️❤️❤️❤️❤️ Anh yêu em! "
+    test_string = "Cô gái này đẹp quá! ❤️❤️❤️❤️❤️ Anh yêu em!"
     strings, is_emoji = split_string_by_emoji(test_string)
     print("分割後的字串列表:", strings)
     print("是否為 emoji 的列表:", is_emoji)

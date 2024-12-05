@@ -231,7 +231,9 @@ def identify_language(text: str, threshold: float = 0.0) -> Tuple[str, str, floa
 
     # 移除 __label__ 前綴
     predicted_codes = [label.replace("__label__", "") for label in predicted_labels]
-    predicted_languages = [flores_200_to_lang[code] for code in predicted_codes]
+    predicted_languages = [
+        flores_200_to_lang.get(code, "N/A") for code in predicted_codes
+    ]
 
     # 日誌記錄預測結果（可選）
     logger.debug(f"Predicted codes: {predicted_codes}")
@@ -362,7 +364,7 @@ def translate():
                     logger.error(f"[{request_id}] MT Failed: {e}")
                     return jsonify({"error": "MT Failed", "details": str(e)}), 500
             else:
-                translated_text.append(normalized_string)
+                translated_text.append(split_string)
 
         response["predicted_languages"] = list(predicted_languages)
         response["translated_text"] = " ".join(translated_text)

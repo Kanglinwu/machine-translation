@@ -7,5 +7,5 @@ model_mt_name: "facebook/nllb-200-distilled-1.3B"
 lang_to_flores_200_file: "docs/lang_to_flores-200.json"
 flores_200_to_lang_file: "docs/flores-200_to_lang.json"
 
-default_languages: ["English", "Korean", "Thai", "Vietnamese", "Chinese (Traditional)", "Chinese (Simplified)"]
+default_languages: ["English", "Korean", "Thai", "Vietnamese"]
 log_file: "logs/api.log"

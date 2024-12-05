@@ -1,6 +1,7 @@
 {
     "Acehnese (Arabic script)": "ace_Arab",
     "Acehnese (Latin script)": "ace_Latn",
+    "Adyghe": "ady_Cyrl",
     "Mesopotamian Arabic": "acm_Arab",
     "Ta’izzi-Adeni Arabic": "acq_Arab",
     "Tunisian Arabic": "aeb_Arab",
@@ -51,6 +52,7 @@
     "Estonian": "est_Latn",
     "Basque": "eus_Latn",
     "Ewe": "ewe_Latn",
+    "Ewondo": "ewo_Latn",
     "Faroese": "fao_Latn",
     "Fijian": "fij_Latn",
     "Finnish": "fin_Latn",

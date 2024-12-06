@@ -366,7 +366,7 @@ def translate():
             else:
                 translated_text.append(split_string)
 
-        response["predicted_languages"] = (
+        response["predicted_language"] = (
             list(predicted_languages)[0] if predicted_languages else ""
         )
         response["translated_text"] = " ".join(translated_text)

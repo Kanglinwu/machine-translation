@@ -1,4 +1,5 @@
 # import unicodedata
+# import timeit
 # import regex as re
 
 import emoji
@@ -63,11 +64,25 @@ def normalize_text(text: str) -> str:
     return " ".join(text.split()).lower()
 
 
+# def split_string_by_emoji_regex(text):
+#     # 使用正則表達式分割，可能在某些情境下更快
+#     segments = re.findall(r"(\p{Emoji}+|\P{Emoji}+)", text)
+#     is_emoji = [bool(re.match(r"\p{Emoji}+", seg)) for seg in segments]
+#     return segments, is_emoji
+
+
 if __name__ == "__main__":
-    test_string = "Cô gái này đẹp quá! ❤️❤️❤️❤️❤️ Anh yêu em!"
-    strings, is_emoji = split_string_by_emoji(test_string)
+    text = "Cô gái này đẹp quá! ❤️❤️❤️❤️❤️ Anh yêu em!"
+    strings, is_emoji = split_string_by_emoji(text)
     print("分割後的字串列表:", strings)
     print("是否為 emoji 的列表:", is_emoji)
+
+    # strings, is_emoji = split_string_by_emoji_regex(text)
+    # print("分割後的字串列表:", strings)
+    # print("是否為 emoji 的列表:", is_emoji)
+
+    # print(timeit.timeit(lambda: split_string_by_emoji(text), number=1000000))
+    # print(timeit.timeit(lambda: split_string_by_emoji_regex(text), number=1000000))
 
 
 # def normalize_text(text):

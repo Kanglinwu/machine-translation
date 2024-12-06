@@ -321,7 +321,7 @@ def translate():
         "request_id": request_id,
         "raw_text": raw_text,
         "translated_text": "",
-        "predicted_languages": [],
+        "predicted_language": "",
         "target_language": target_language,
         "model_lid": model_lid_name,
         "model_mt": model_mt_name,
@@ -366,7 +366,9 @@ def translate():
             else:
                 translated_text.append(split_string)
 
-        response["predicted_languages"] = list(predicted_languages)
+        response["predicted_languages"] = (
+            list(predicted_languages)[0] if predicted_languages else ""
+        )
         response["translated_text"] = " ".join(translated_text)
 
         logger.debug(f"[{request_id}] Predicted Languages: {list(predicted_languages)}")

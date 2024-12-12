@@ -1,6 +1,7 @@
 /models/
 /logs/
 /tmp/
+.DS_Store
 
 # Python 編譯檔案
 __pycache__/

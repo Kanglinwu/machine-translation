@@ -52,4 +52,7 @@ sudo systemctl restart docker
 git clone https://github.com/United-Link/machine-translation.git
 git checkout MultipleGPUs
 
+cd machine-translation
+docker build -t translator:mg .
+
 ```

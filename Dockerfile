@@ -35,7 +35,6 @@ RUN pip install -r requirements.txt
 
 # 複製項目文件
 COPY api.py /app
-COPY ./models /app/models
 COPY ./docs /app/docs
 COPY ./conf /app/conf
 COPY ./utils /app/utils

@@ -49,6 +49,7 @@ sudo systemctl restart docker
 
 ## Github repository
 ```bash
-git clone git@github.com:United-Link/machine-translation.git
+git clone https://github.com/United-Link/machine-translation.git
+git checkout MultipleGPUs
 
 ```

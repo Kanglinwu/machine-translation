@@ -28,7 +28,6 @@ RUN mkdir /app/models
 RUN python download_models.py
 
 COPY api.py /app
-COPY download_models.py /app
 COPY ./docs /app/docs
 COPY ./conf /app/conf
 COPY ./utils /app/utils

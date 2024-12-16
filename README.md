@@ -63,9 +63,8 @@ sudo systemctl restart docker
 ## Github repository
 ```bash
 git clone https://github.com/United-Link/machine-translation.git
-git checkout MultipleGPUs
 
 cd machine-translation
-docker build -t translator:mg .
-
+docker build -t translator:v1.0.0 .
+docker build -t nginx_load_balancer:mg .
 ```

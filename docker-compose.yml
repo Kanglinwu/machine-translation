@@ -16,7 +16,7 @@ services:
             - driver: nvidia
               device_ids: ['0']
               capabilities: [gpu]
-    command: python api.py
+    command: python3 api.py
     logging:
       driver: "local"
       options:
@@ -42,7 +42,7 @@ services:
             - driver: nvidia
               device_ids: ['0']
               capabilities: [gpu]
-    command: python api.py
+    command: python3 api.py
     logging:
       driver: "local"
       options:
@@ -68,7 +68,7 @@ services:
             - driver: nvidia
               device_ids: ['0']
               capabilities: [gpu]
-    command: python api.py
+    command: python3 api.py
     logging:
       driver: "local"
       options:
@@ -94,7 +94,7 @@ services:
             - driver: nvidia
               device_ids: ['0']
               capabilities: [gpu]
-    command: python api.py
+    command: python3 api.py
     logging:
       driver: "local"
       options:
@@ -120,7 +120,7 @@ services:
             - driver: nvidia
               device_ids: ['0']
               capabilities: [gpu]
-    command: python api.py
+    command: python3 api.py
     logging:
       driver: "local"
       options:

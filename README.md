@@ -66,11 +66,6 @@ git clone https://github.com/United-Link/machine-translation.git
 
 cd machine-translation
 docker build -f Dockerfile_trans -t translator:v1.0.0 .
-docker run -d --name translator translator:v1.0.0
-docker cp translator:/app/models ./models
-docker stop translator
-docker rm translator
-
 docker build -f Dockerfile_nginx -t nginx_load_balancer:v1.0.0 .
 ```
 ```bash

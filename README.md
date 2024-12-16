@@ -10,40 +10,53 @@ sudo vim /etc/hosts
 ```bash
 sudo apt update
 sudo apt upgrade
-sudo apt install build-essential tmux vim sox ffmpeg htop nvtop git
+sudo apt install build-essential tmux vim sox ffmpeg htop nvtop git ca-certificates curl gnupg
 sudo apt autoclean
 sudo apt autoremove
 ```
 
-## Cuda Installation
+## NVIDIA DRIVER Installation
 ```bash
-wget https://developer.download.nvidia.com/compute/cuda/12.6.3/local_installers/cuda_12.6.3_560.35.05_linux.run
-sudo sh cuda_12.6.3_560.35.05_linux.run
+sudo vim /etc/modprobe.d/blacklist-nouveau.conf
+
+blacklist nouveau
+options nouveau modeset=0
+
+sudo update-initramfs -u
+sudo reboot now
+```
+```bash
+ubuntu-drivers devices
+sudo ubuntu-drivers autoinstall
+sudo reboot now
 ```
 
 ## Docker
-
 ```bash
-# Add Docker's official GPG key:
-sudo apt update
-sudo apt install ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-sudo chmod a+r /etc/apt/keyrings/docker.asc
-
-# Add the repository to Apt sources:
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt update
-sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+```
+```bash
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo usermod -aG docker ulink
 ```
-
 ```bash
-sudo nvidia-ctk runtime configure --runtime=docker
+sudo systemctl enable docker
+sudo systemctl enable containerd
+sudo reboot now
+```
+
+## NVIDIA Container Toolkit
+```bash
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
+curl -s -L https://nvidia.github.io/libnvidia-container/ubuntu22.04/libnvidia-container.list | \
+    sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+    sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+sudo apt-get update
+sudo apt-get install -y nvidia-container-toolkit
+sudo nvidia-ctk runtime configure
 sudo systemctl restart docker
 ```
 

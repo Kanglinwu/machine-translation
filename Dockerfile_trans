@@ -29,9 +29,9 @@ COPY ./docs /app/docs
 COPY ./conf /app/conf
 COPY ./utils /app/utils
 
-RUN python3 /app/download_models.py
-
 COPY entrypoint.sh /app/
 RUN chmod +x /app/entrypoint.sh
+
+RUN python3 /app/download_models.py
 
 VOLUME /app/models

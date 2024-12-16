@@ -65,6 +65,6 @@ sudo systemctl restart docker
 git clone https://github.com/United-Link/machine-translation.git
 
 cd machine-translation
-docker build -t translator:v1.0.0 .
-docker build -t nginx_load_balancer:mg .
+docker build -f Dockerfile_trans -t translator:v1.0.0 .
+docker build -f Dockerfile_nginx -t nginx_load_balancer:v1.0.0 .
 ```

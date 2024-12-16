@@ -30,5 +30,3 @@ COPY ./conf /app/conf
 COPY ./utils /app/utils
 
 RUN python3 /app/download_models.py
-
-VOLUME /app/models

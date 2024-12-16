@@ -20,12 +20,14 @@ RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
 
 WORKDIR /app
 
+RUN python3 -m venv /app/venv
+
 COPY requirements.txt /app
 RUN pip install -r requirements.txt
 
 COPY download_models.py /app
 RUN mkdir /app/models
-RUN python download_models.py
+RUN /app/venv/bin/python download_models.py
 
 COPY api.py /app
 COPY ./docs /app/docs

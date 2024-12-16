@@ -23,14 +23,15 @@ WORKDIR /app
 COPY requirements.txt /app
 RUN pip install -r requirements.txt
 
+COPY entrypoint.sh /app/
+RUN chmod +x /app/entrypoint.sh
+ENTRYPOINT ["/app/entrypoint.sh"]
+
 COPY api.py /app
 COPY download_models.py /app
 COPY ./docs /app/docs
 COPY ./conf /app/conf
 COPY ./utils /app/utils
-
-COPY entrypoint.sh /app/
-RUN chmod +x /app/entrypoint.sh
 
 RUN python3 /app/download_models.py
 

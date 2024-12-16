@@ -60,7 +60,7 @@ sudo nvidia-ctk runtime configure
 sudo systemctl restart docker
 ```
 
-## Github repository
+## Run
 ```bash
 git clone https://github.com/United-Link/machine-translation.git
 
@@ -73,3 +73,28 @@ docker rm translator
 
 docker build -f Dockerfile_nginx -t nginx_load_balancer:v1.0.0 .
 ```
+```bash
+docker compose up -d
+```
+
+## API
+### Post
+```bash
+curl -X POST http://10.10.10.119:2486/translate \
+    -H "Content-Type: application/json" \
+    -d '{"raw_text": "Cô gái này đẹp quá! ❤️❤️❤️❤️❤️ Anh yêu em!", "target_language": "English"}'
+```
+### Response
+```bash
+{
+    "request_id": "25320973-3d3e-4b69-9728-b5cf67bec897", 
+    "raw_text": "Cô gái này đẹp quá! ❤️❤️❤️❤️❤️ Anh yêu em!", 
+    "translated_text": "This girl is beautiful! ❤️❤️❤️❤️❤️ I love you!", 
+    "predicted_language": "Emoji", 
+    "target_language": "English", 
+    "model_lid": "facebook/fasttext-language-identification", 
+    "model_mt": "facebook/nllb-200-distilled-1.3B"}
+}
+```
+
+

@@ -364,11 +364,10 @@ def translate():
                     logger.error(f"[{request_id}] MT Failed: {e}")
                     return jsonify({"error": "MT Failed", "details": str(e)}), 500
             else:
-                predicted_languages.add("Emoji")
                 translated_text.append(split_string)
 
         response["predicted_language"] = (
-            list(predicted_languages)[0] if predicted_languages else ""
+            list(predicted_languages)[0] if predicted_languages else "Emoji"
         )
         response["translated_text"] = " ".join(translated_text)
 

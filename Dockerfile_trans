@@ -23,10 +23,10 @@ WORKDIR /app
 COPY requirements.txt /app
 RUN pip install -r requirements.txt
 
-RUN python3 /app/download_models.py
-
 COPY api.py /app
 COPY download_models.py /app
 COPY ./docs /app/docs
 COPY ./conf /app/conf
 COPY ./utils /app/utils
+
+RUN python3 /app/download_models.py

@@ -72,6 +72,22 @@ docker build -f Dockerfile_nginx -t nginx_load_balancer:v1.0.0 .
 docker compose up -d
 ```
 
+## Run by docker-swarm
+```bash
+# docker swarm init
+docker swarm init
+
+# run the service
+docker stack deploy -c docker-compose_new.yml machine_translation
+
+# delete the service
+docker stack rm machine_translation
+
+# check the service / log
+docker service ls
+docker service logs <service_name>
+```
+
 ## API
 ### Post
 ```bash

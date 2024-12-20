@@ -1,0 +1,149 @@
+services:
+  translator_1_cuda0:
+    image: translator:v1.0.0
+    volumes:
+      - ./tmp/tmp_01:/tmp
+      - ./logs/logs_01:/app/logs
+    environment:
+      GPU_ID: 0
+    ipc: host
+    ports:
+      - "1001:5050"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ['0']
+              capabilities: [gpu]
+    command: python3 api.py
+    logging:
+      driver: "local"
+      options:
+        max-size: "100m"
+        max-file: "14"
+    networks:
+      - loadbalance_net
+
+  translator_2_cuda0:
+    image: translator:v1.0.0
+    volumes:
+      - ./tmp/tmp_02:/tmp
+      - ./logs/logs_02:/app/logs
+    environment:
+      GPU_ID: 0
+    ipc: host
+    ports:
+      - "1002:5050"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ['0']
+              capabilities: [gpu]
+    command: python3 api.py
+    logging:
+      driver: "local"
+      options:
+        max-size: "100m"
+        max-file: "14"
+    networks:
+      - loadbalance_net
+
+  translator_3_cuda0:
+    image: translator:v1.0.0
+    volumes:
+      - ./tmp/tmp_03:/tmp
+      - ./logs/logs_03:/app/logs
+    environment:
+      GPU_ID: 0
+    ipc: host
+    ports:
+      - "1003:5050"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ['0']
+              capabilities: [gpu]
+    command: python3 api.py
+    logging:
+      driver: "local"
+      options:
+        max-size: "100m"
+        max-file: "14"
+    networks:
+      - loadbalance_net
+
+  translator_4_cuda0:
+    image: translator:v1.0.0
+    volumes:
+      - ./tmp/tmp_04:/tmp
+      - ./logs/logs_04:/app/logs
+    environment:
+      GPU_ID: 0
+    ipc: host
+    ports:
+      - "1004:5050"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ['0']
+              capabilities: [gpu]
+    command: python3 api.py
+    logging:
+      driver: "local"
+      options:
+        max-size: "100m"
+        max-file: "14"
+    networks:
+      - loadbalance_net
+
+  translator_5_cuda0:
+    image: translator:v1.0.0
+    volumes:
+      - ./tmp/tmp_05:/tmp
+      - ./logs/logs_05:/app/logs
+    environment:
+      GPU_ID: 0
+    ipc: host
+    ports:
+      - "1005:5050"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ['0']
+              capabilities: [gpu]
+    command: python3 api.py
+    logging:
+      driver: "local"
+      options:
+        max-size: "100m"
+        max-file: "14"
+    networks:
+      - loadbalance_net
+
+  nginx_load_balancer:
+    image: nginx_load_balancer:v1.0.0
+    volumes:
+      - ./tmp/tmp_nginx:/tmp
+      - ./logs/logs_nginx:/app/logs
+    ports:
+      - "2486:80"
+    networks:
+      - loadbalance_net
+    logging:
+      driver: "local"
+      options:
+        max-size: "100m"
+        max-file: "14"
+
+networks:
+  loadbalance_net:
+    driver: bridge
